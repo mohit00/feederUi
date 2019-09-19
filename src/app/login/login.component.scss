@@ -1,0 +1,221 @@
+/*------------------------------------------------------------------
+Monitoring by EGrappler.com
+------------------------------------------------------------------*/
+
+
+
+.ng-valid[required], .ng-valid.required  {
+	border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+	border-left: 5px solid #a94442; /* red */
+  }
+/** Base Body Styles **/
+
+
+.login-container{
+    position: relative;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.login-container::before,.login-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(4deg);
+    -moz-transform: rotateZ(4deg);
+    -ms-transform: rotateZ(4deg);
+    border: 1px solid #ccc;
+
+}
+.login-container::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+
+}
+
+.account-container {
+	width: 346px; 
+	display: block;
+	margin: 9% auto 0 auto;
+	
+	// background: #f9f9f9;
+	background: rgba(249, 249, 249, .9);
+	border: 1px solid #d5d5d5;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	box-shadow:  0px 0px 2px #dadada, inset 0px -3px 0px #e6e6e6;
+}
+
+.content {
+	padding: 13px 12px 22px;} 
+ 
+ 
+
+.username-field { background: url(/assets/img/signin/user.png) no-repeat; }
+
+.password-field { background: url(/assets/img/signin/password.png) no-repeat; }
+
+
+
+
+.login-actions {
+	float: left;
+	
+	width: 100%;
+	
+	margin-top: -1em;
+	margin-bottom: 1.25em;
+}
+
+.login-social {
+	float: left;
+	
+	padding: 10px 0 15px;
+	
+	border: 1px dotted #CCC;
+	border-right: none;
+	border-left: none;	
+}
+
+span.login-checkbox {
+	float: left;
+	margin-top: 31px;
+}
+
+ 
+ .submitButton{
+    width: 97%;
+    /* margin: 10px; */
+    margin: 13px 10px 10px 4px;
+ }
+
+/** Text Under Box**/
+.login-extra {
+	display: block; 
+	width: 300px; 
+	margin: 1.5em auto;
+	 
+	text-align: left;
+	line-height: 19px; 
+	
+	text-shadow: 1px 1px 0px #fff; 	
+}
+
+
+.account-container h1 {
+	margin-bottom: .4em;
+	
+	color: #525252;
+}
+
+/** Buttons **/
+.twitter, .fb {
+	position: relative;
+	
+	height: 32px; 
+	width: 157px; 
+	display: block;
+	
+	background: url(/assets/img/signin/twitter_btn.png) no-repeat; 
+	
+}
+
+.fb {
+	width: 162px; 
+	
+	background: url(/assets/img/signin/fb_btn.png) no-repeat; 	
+}
+
+.twitter:active, .fb:active {
+	top: 1px;
+}
+
+.twitter:hover, .fb:hover {
+	background-position: 0 -32px;
+}
+
+.twitter a, .fb a {
+	padding: 5px 0 0 35px; 
+	text-shadow: -1px -1px 0px rgba(0,0,0,.3); 
+	color:#fff; 
+	font-weight: bold; 
+	font-size: 11px; 
+	height: 32px; 
+	display: block;	
+}
+
+.fb a {
+	padding: 5px 0 0 31px; 
+	
+}
+
+.twitter, .fb {
+	display: inline-block;
+}
+
+.twitter a:hover, .fb a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block; float: right; margin-top: 18px;}
+
+
+
+
+
+
+.register .login-social {
+	margin-bottom: 1em;
+}
+
+.register .login-actions {
+	margin-bottom: 0;
+}
+
+ 
+
+.register h1 {
+	color: #444;
+}
+
+.register span.login-checkbox {
+	position: relative;
+	top: -6px;
+	
+	width: 200px;
+}
+
+ 
+
+@media (max-width: 480px) {
+	
+	.account-container {
+		width: 280px;	
+		margin-top: 35px;
+	}
+	
+	 
+	
+	.login-social {
+		width: 100%;
+	}
+	
+	.twitter {
+		display: block;
+		margin-bottom: 1em;
+	}
+ 
+	
+}
