@@ -5,12 +5,18 @@ import { DashboardComponent } from './dashboard.component';
 import { DashRoutingModule } from './dashboard.routing.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { HeaderComponent } from '../header/header.component';
+import { AgmCoreModule } from '@agm/core';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import { HighchartsChartModule } from 'highcharts-angular';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [DashboardComponent,HeaderComponent],
-  imports: [
-    CommonModule,DashRoutingModule,   CollapseModule.forRoot()
+  imports: [AgmCoreModule.forRoot({
+    apiKey: ''
+  }),
+    CommonModule,    BsDatepickerModule.forRoot() ,DashRoutingModule,BsDropdownModule ,   CollapseModule.forRoot(),HighchartsChartModule
   ]
 })
 export class DashboardModule { }

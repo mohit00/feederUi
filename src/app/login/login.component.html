@@ -7,8 +7,7 @@
 
 	<div class="content clearfix" style ="    margin-top: 11px;">
 		 
-		<form name ="heroForm" >
-		
+ 		
 			<img src ="assets/img/xenius-logo.png" style="    margin: auto;
 			margin-left: 59px;
 			padding: 2px;
@@ -16,14 +15,14 @@
 			margin-bottom: 11px;">		
 			
 			<div class="login-fields">
-				
+				<form [formGroup]="myForm"  >
 				<p>Please provide your details</p>
                 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="User Name">
+                    <input type="text" class="form-control"  formControlName="login_id"   aria-label="Amount (to the nearest dollar)" placeholder="User Name">
                     <div class="input-group-append">
                      </div>
                   </div>
@@ -31,7 +30,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">$</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Password">
+                    <input type="text" class="form-control"  formControlName="password"   aria-label="Amount (to the nearest dollar)" placeholder="Password">
                     <div class="input-group-append">
                      </div>
                   </div>
@@ -44,8 +43,8 @@
                             </label> Remember Me
                             </div>
                             </div>
-                            <button type="button" class="btn btn-primary submitButton" (click) = "dash()">Sign In</button>
-
+                            <button type="button" class="btn btn-primary submitButton"  (click) ="dash()">Sign In</button>
+                          </form>
 				   <!-- /password -->
 				
 			</div> <!-- /login-fields -->
@@ -54,8 +53,7 @@
 			
 			
 			
-		</form>
-		
+ 		
 	</div> <!-- /content -->
 	
 </div> 
