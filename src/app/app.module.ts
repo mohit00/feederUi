@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { SucessComponent } from './dialog/sucess/sucess.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     SucessComponent,
      
   ],
-  imports: [BrowserAnimationsModule, HttpClientModule,
+  imports: [BrowserAnimationsModule, HttpClientModule,MatMenuModule,
     BrowserModule,ReactiveFormsModule,BsDropdownModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

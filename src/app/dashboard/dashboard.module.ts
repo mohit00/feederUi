@@ -11,10 +11,11 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [DashboardComponent,HeaderComponent],
-  imports: [AgmCoreModule.forRoot({
+  imports: [MatMenuModule,AgmCoreModule.forRoot({
     apiKey: ''
   }),FormsModule,
     CommonModule,    BsDatepickerModule.forRoot() ,DashRoutingModule,BsDropdownModule ,   CollapseModule.forRoot(),HighchartsChartModule
