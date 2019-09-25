@@ -20,7 +20,7 @@ export class FeederService {
   LAST_7_DAYS_FEEDER_SATUS = 'getFeederStatisticsHistory';
   AVERAGE_SUPPLY = 'getAvgSupplyStatus';
   INTERRUPTION_DATA = 'getInterruptionData';
-
+  GET_BEST_AND_WORST = 'getBestAndWorstFeeder'
    constructor(private _http: HttpClient, private router: Router 
     // tslint:disable-next-line: no-shadowed-variable
                  ) {
@@ -30,6 +30,19 @@ export class FeederService {
      }
      getfeederProject(data:any): Observable < any > {
       return this._http.post(  this.BASE_URL+this.GET_FEEDER_PROJECT_WITH_COUNT, data).pipe(
+        // eg. "map" without a dot before
+        map(data => {
+          return data;
+        }),
+        // "catchError" instead "catch"
+        catchError(error => {
+          alert("Something went wrong ;)");
+          return Observable.throw('Something went wrong ;)');
+        })
+      );
+  }
+    getWorstBest(data:any): Observable < any > {
+      return this._http.post(  this.BASE_URL+this.GET_BEST_AND_WORST, data).pipe(
         // eg. "map" without a dot before
         map(data => {
           return data;

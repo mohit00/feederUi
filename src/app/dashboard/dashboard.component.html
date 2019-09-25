@@ -1,147 +1,158 @@
 <app-header></app-header>
-<div class ="container-fluid" >     <div class ="row topBox" >
-    <div class ="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-        <div class ="row" *ngFor ="let list of ProjectCountList" (click) = "updateChart()">
-                <div class ="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" style="padding: 0;
+<div class="container-fluid">
+  <div class="row topBox">
+    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+      <div class="row" *ngFor="let list of ProjectCountList" (click)="updateChart()">
+        <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" style="padding: 0;
                 padding-left: 7px;
                 margin-top: 31px;
                 padding-top: 5px;">
-                        <div [ngClass]="getClass(list.id)" style=" 
+          <div [ngClass]="getClass(list.id)" style=" 
                         padding: 0;
                         margin: 0;
                         padding-top: 5px;
                         padding-bottom: 5px;
                         border-radius: 0;">
-                                <div class="card-body" style="padding: 0px;">
-                                    <p><strong>{{list.id}}</strong></p>
-</div>
-</div>
-                </div>
-                <div class ="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 " style="padding-left: 0px">
-                        <div class="card" style="background: #e8e7ef">
-                                <div class="card-body" style="padding: 2px 10px 5px 10px;">
-                                    <div class ="row" style="    margin-top: 0;">
-                                        <div class ="col-12"style="
-                                        padding-right: 0px;" >
-                                            <p style="    margin: 9px;"> Installed <span style="color:red">{{list.installed}}</span></p>
-                                            <p>                                                  <img src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/graph.png" alt="Bar-graph" border="0" style="    margin-left: 5px;
+            <div class="card-body" style="padding: 0px;">
+              <p><strong>{{list.id}}</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9 " style="padding-left: 0px">
+          <div class="card" style="background: #e8e7ef">
+            <div class="card-body" style="padding: 2px 10px 5px 10px;">
+              <div class="row" style="    margin-top: 0;">
+                <div class="col-12" style="
+                                        padding-right: 0px;">
+                  <p style="    margin: 9px;"> Installed <span style="color:red">{{list.installed}}</span></p>
+                  <p> <img
+                      src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/graph.png"
+                      alt="Bar-graph" border="0" style="    margin-left: 5px;
                                                 float: left;
-                                                width: 50px; "> 
-                                                 <span style="color:#779000;font-size: 27px">{{list.live}}</span></p>
-                                                 <p style="margin-left:50px">Total Live</p>
-                                        
-                                        </div>
-                                        <!-- <div class ="col-6" style="padding-left: 0;">
+                                                width: 50px; ">
+                    <span style="color:#779000;font-size: 27px">{{list.live}}</span></p>
+                  <p style="margin-left:50px">Total Live</p>
+
+                </div>
+                <!-- <div class ="col-6" style="padding-left: 0;">
                                                  <img src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/graph.png" alt="Bar-graph" border="0" style="    margin-right: 7px;
                                                  float: left;
                                                  width: 21px;"> 
                                                 <p>Total Live</p>
                                                 <p>2314</p></div> -->
-            
-                                    </div>
-            
-                                </div>
-                              </div>
-                    </div>
-               
-             </div>
-            
-                             
-           
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
     </div>
-    <div class ="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10" style ="background: #f0eff7">
-        <div class ="row">
-<div class ="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
-        <span style="color: #616060"> <strong>DASHBOARD</strong></span>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10" style="background: #f0eff7 ;">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <span style="color: #616060"> <strong>DASHBOARD</strong></span>
 
-    <div class="row">
-            <div class ="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 ">
-                <div class="card" style ="border-radius: 10px;">
-                    <div class="card-body">
-                        <span style="width:60% ;float: left;">
-                        <p style="float: left;font-size: 15px"> AVERAGE SUPPLY & INTERRUPTION</p>
-                        </span>
-                        <span style="width:40%;     float: left;">
-                            <div class ="row" style="    margin: 0;
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <span style="width:60% ;float: left;">
+                    <p style="float: left;font-size: 15px"> AVERAGE SUPPLY & INTERRUPTION</p>
+                  </span>
+                  <span style="width:40%;     float: left;">
+                    <div class="row" style="    margin: 0;
                             float: right;">
-                            <div class ="col-8" style="padding: 0;">
-                                <span class=" form-group"> 
-                                    <input type="text"
-                [maxDate]="maxDate"
-                ngModel
-                (bsValueChange)="onValueChange($event)"
-                                          placeholder="Select Date"
-                                          class="form-control"
-                                          [bsValue]="bsValue"
-                                          bsDatepicker
-                                          [bsConfig]="{ isAnimated: true }">
-                                 </span>
-                            </div>
-                              <div class ="col-4">
-                                 <div class="btn-group dropdown dropleft"   dropdown  placement="bottom left"  >
-                 
-                                 <button id="button-basic" dropdownToggle  style=" border-radius: 10px;  opacity: 0.8;   float: right;  background: #3497ac;"  type="button" class="btn btn-primary dropdown-toggle"
-                                 aria-controls="dropdown-basic1">
-                         </button>
-                        
-                         <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu dropdown-menu-left" 
-                         role="menu" aria-labelledby="button-basic">
-                             <li role="menuitem"><a class="dropdown-item" (click) ="averageSupply(bsValue,'1')">Today data</a></li>
+                      <div class="col-8" style="padding: 0;">
+                        <span class=" form-group">
+                          <input type="text" [maxDate]="maxDate" ngModel (bsValueChange)="onValueChange($event)"
+                            placeholder="Select Date" class="form-control" [bsValue]="bsValue" bsDatepicker
+                            [bsConfig]="{ isAnimated: true }">
+                        </span>
+                      </div>
+                      <div class="col-4">
+                        <div class="btn-group dropdown dropleft" dropdown placement="bottom left">
+
+                          <button id="button-basic" dropdownToggle
+                            style=" border-radius: 10px;  opacity: 0.8;   float: right;  background: #3497ac;"
+                            type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic1">
+                          </button>
+
+                          <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu dropdown-menu-left" role="menu"
+                            aria-labelledby="button-basic">
+                            <li role="menuitem"><a class="dropdown-item" (click)="averageSupply(bsValue,'1')">Today
+                                data</a></li>
                             <li class="divider dropdown-divider"></li>
-                           <li role="menuitem"><a class="dropdown-item"   (click) ="averageSupply(bsValue,'2')">Last 7 Day</a>
-                           </li>
-                         </ul>
-                       </div>
-                              </div>
-                            </div>
-                           
-</span>
-                        <hr style="margin-top: 45px;">
-                            <highcharts-chart
-                            [Highcharts] = "highcharts" 
-                            [constructorType]="chartConstructor"
-
-                             [options]="chartOption6"
-                            [callbackFunction]="chartCallback1"
-                            [(update)]="updateFlag1"
-                            [oneToOne]="true"
-                            style = "width: 100%; height: 400px; display: block;">
-                         </highcharts-chart>
-                         
-
+                            <li role="menuitem"><a class="dropdown-item" (click)="averageSupply(bsValue,'2')">Last 7
+                                Day</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                    
-                          <div class="card" style ="border-radius: 10px;">
-                                <div class="card-body">
-                                    <span style="width:70% ;float: left;">
-                                        <p style="float: left;font-size: 15px">Supply Graph</p>
-                                        </span>
-                                        <span style="width:30%;     float: left;">
-                                            <span class=" form-group"> 
-                                                <input type="text"
-                            [maxDate]="maxDate"
-                            ngModel
-                            (bsValueChange)="onValueChange($event)"
-                                                      placeholder="Select Date"
-                                                      class="form-control"
-                                                      [bsValue]="bsValue"
-                                                      bsDatepicker
-                                                      [bsConfig]="{ isAnimated: true }">
-                                             </span>
-                </span>
-                                    <hr style="margin-top:45px">
-                                        <highcharts-chart
-                                        [Highcharts] = "highcharts" 
-                                        [options] = "chartOptions3" 
-                                        style = "width: 100%; height: 400px; display: block;">
-                                     </highcharts-chart>
-                                     
-            
-                                </div>
-                              </div>
-                          
-                                  <!-- <div class="card" style ="border-radius: 10px;">
+
+                  </span>
+                  <hr style="margin-top: 45px;">
+                  <highcharts-chart [Highcharts]="highcharts" [constructorType]="chartConstructor"
+                    [options]="chartOption6" [callbackFunction]="chartCallback1" [(update)]="updateFlag1"
+                    [oneToOne]="true" style="width: 100%; height: 400px; display: block;">
+                  </highcharts-chart>
+
+
+                </div>
+              </div>
+
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <span style="width:75% ;float: left;">
+                    <p style="float: left;font-size: 15px">Supply Graph</p>
+                  </span>
+                  <span style="width:25%;     float: left;">
+                    <div class="form-group">
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option selected>Select hr</option>
+                        <option>1 hr</option>
+                        <option>2 hr</option>
+                        <option>4 hr</option>
+                        <option>5 hr</option>
+                        <option>6 hr</option>
+
+                        <option>7 hr</option>
+                        <option>8 hr</option>
+                        <option>9 hr</option>
+                        <option>10 hr</option>
+                        <option>11 hr</option>
+                        <option>12 hr</option>
+                        <option>13 hr</option>
+                        <option>14 hr</option>
+                        <option>15 hr</option>
+                        <option>16 hr</option>
+                        <option>17 hr</option>
+                        <option>18 hr</option>
+                        <option>19 hr</option>
+                        <option>20 hr</option>
+                        <option>21 hr</option>
+                        <option>22 hr</option>
+                        <option>23 hr</option>
+                        <option>24 hr</option>
+
+                      </select>
+                    </div>
+                  </span>
+                  <hr style="margin-top:45px">
+                  <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions3"
+                    style="width: 100%; height: 400px; display: block;">
+                  </highcharts-chart>
+
+
+                </div>
+              </div>
+
+              <!-- <div class="card" style ="border-radius: 10px;">
                                         <div class="card-body">
                                             <span style="width:100%">
                                             <p style="float: left;font-size: 15px"> LAST MONTH PEAK LOAD</p>
@@ -156,53 +167,49 @@
                     
                                         </div>
                                       </div> -->
-</div>
-<div class ="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 ">
-    <div class="card" style ="border-radius: 10px;">
-        <div class="card-body">
-            <span style="width:80%;float: left;">
-            <p style="float: left;font-size: 15px"> 11kv Feeder Status -On As Date (20/08/2018 17:29)</p>
-            
-          
-          </span>
-          <span style="width:20%;float: right;">
-           <div class ="row" style="    margin: 0;
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <span style="width:80%;float: left;">
+                    <p style="float: left;font-size: 15px"> 11kv Feeder Status </p>
+
+
+                  </span>
+                  <span style="width:20%;float: right;">
+                    <div class="row" style="    margin: 0;
            float: right;">
-             <div class ="col-12">
-                <div class="btn-group dropdown dropleft"   dropdown  placement="bottom left"  >
+                      <div class="col-12">
+                        <div class="btn-group dropdown dropleft" dropdown placement="bottom left">
 
-                <button id="button-basic" dropdownToggle  style=" border-radius: 10px;  opacity: 0.8;   float: right;  background: #3497ac;"  type="button" class="btn btn-primary dropdown-toggle"
-                aria-controls="dropdown-basic1">
-        </button>
-       
-        <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu dropdown-menu-left" 
-        role="menu" aria-labelledby="button-basic">
-            <li role="menuitem"><a class="dropdown-item" (click) ="getfeederStatisticdata('1')">Today data</a></li>
-           <li class="divider dropdown-divider"></li>
-          <li role="menuitem"><a class="dropdown-item"   (click) ="getfeederStatisticdata('2')">Last 7 Day</a>
-          </li>
-        </ul>
-      </div>
-             </div>
-           </div>
-</span>
-            <hr style="margin-top:45px">
-            <highcharts-chart
-            id="container"
-            [Highcharts]="Highcharts"
-            [constructorType]="chartConstructor"
-            [options]="chartOptions"
-            [callbackFunction]="chartCallback"
-            [(update)]="updateFlag"
-            [oneToOne]="'true'"
-            style="width: 100%; height: 400px; display: block;"
-          >
-          </highcharts-chart>
-             
+                          <button id="button-basic" dropdownToggle
+                            style=" border-radius: 10px;  opacity: 0.8;   float: right;  background: #3497ac;"
+                            type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic1">
+                          </button>
 
-        </div>
-      </div>
-        <!-- <div class="card" style ="border-radius: 10px;">
+                          <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu dropdown-menu-left" role="menu"
+                            aria-labelledby="button-basic">
+                            <li role="menuitem"><a class="dropdown-item" (click)="getfeederStatisticdata('1')">Today
+                                data</a></li>
+                            <li class="divider dropdown-divider"></li>
+                            <li role="menuitem"><a class="dropdown-item" (click)="getfeederStatisticdata('2')">Last 7
+                                Day</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </span>
+                  <hr style="margin-top:45px">
+                  <highcharts-chart id="container" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+                    [options]="chartOptions" [callbackFunction]="chartCallback" [(update)]="updateFlag"
+                    [oneToOne]="'true'" style="width: 100%; height: 400px; display: block;">
+                  </highcharts-chart>
+
+
+                </div>
+              </div>
+              <!-- <div class="card" style ="border-radius: 10px;">
                 <div class="card-body">
                     <span style="width:100%">
                     <p style="float: left;font-size: 15px">  Energy Supplied</p>
@@ -232,36 +239,97 @@
 
                 </div>
                   </div> -->
-                
-                  <div class="card" style ="border-radius: 10px;min-height: 483px;">
-                    <div class="card-body">
-                        <span style="width:70% ;float: left;">
-                            <p style="float: left;font-size: 15px">Best & Worst Feeder</p>
-                            </span>
-                            <span style="width:30%;     float: left;">
-                                <span class=" form-group"> 
-                                    <input type="text"
-                [maxDate]="maxDate"
-                ngModel
-                (bsValueChange)="onValueChange($event)"
-                                          placeholder="Select Date"
-                                          class="form-control"
-                                          [bsValue]="bsValue"
-                                          bsDatepicker
-                                          [bsConfig]="{ isAnimated: true }">
-                                 </span>
-    </span>
-                        <hr style="margin-top:45px">
-                            <highcharts-chart
-                            [Highcharts] = "highcharts" 
-                            [options] = "chartOptions3" 
-                            style = "width: 100%; height: 400px; display: block;">
-                         </highcharts-chart>
-                         
 
-                    </div>
+              <div class="card" style="border-radius: 10px;min-height: 483px;">
+                <div class="card-body">
+                  <span style="width:60% ;float: left;">
+                    <p style="float: left;font-size: 15px">Best & Worst Feeder ({{typeselected}})</p>
+                  </span>
+                  <span style="width:40%;     float: left;">
+                    <div class="row" style="    margin: 0;
+                              float: right;">
+                      <div class="col-8" style="padding: 0;">
+                        <!-- <span class=" form-group">
+                          <select class="form-control" id="exampleFormControlSelect1" name="select"
+                            [(ngModel)]="selectedType">
+                            <option selected value="Best">Best</option>
+                            <option value="Worst">Worst</option>
+
+
+                          </select>
+                        </span> -->
                       </div>
-                      <!-- <div class="card" style ="border-radius: 10px;">
+                      <div class="col-4">
+                        <div class="btn-group dropdown dropleft" dropdown placement="bottom left">
+
+                          <button id="button-basic" dropdownToggle
+                            style=" border-radius: 10px;  opacity: 0.8;   float: right;  background: #3497ac;"
+                            type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic1">
+                          </button>
+
+                          <ul id="dropdown-basic1" *dropdownMenu class="dropdown-menu dropdown-menu-left" role="menu"
+                            aria-labelledby="button-basic">
+                            <li role="menuitem"><a class="dropdown-item"
+                                (click)="getWorstBestFeeder('interruption')">Interruption</a></li>
+                            <li class="divider dropdown-divider"></li>
+                            <li role="menuitem"><a class="dropdown-item"
+                                (click)="getWorstBestFeeder('average_duration')">Average Duration</a>
+                            </li>
+                            <li class="divider dropdown-divider"></li>
+                            <li role="menuitem"><a class="dropdown-item"
+                                (click)="getWorstBestFeeder('duration')">Duration</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </span>
+                  <hr style="margin-top:45px">
+                  <!-- <highcharts-chart
+                            [Highcharts] = "highcharts" 
+                            [options] = "chartOptions8" 
+
+                             [constructorType]="chartConstructor"
+                             [callbackFunction]="chartCallback8"
+                            [(update)]="updateFlag8"
+                            [oneToOne]="'true'"
+                            style = "width: 100%; height: 400px; display: block;">
+                         </highcharts-chart> -->
+                  <div class="grid">
+                    <div class="a">
+                      <div class="aa">Best</div>
+                      <div class="ab">
+                        <div *ngFor ="let list of bestdata">{{list.discomName}} - {{list.substationName}}  -  {{list.feederName}} - 
+                          <span
+                            style="font-weight: 800;">
+                            <span *ngIf ="typeselected == 'Interruption'">({{list.outageCount}})</span>
+                            <span *ngIf ="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
+                            <span *ngIf ="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
+</span>
+                          </div>
+                        
+                      </div>
+                    </div>
+                    <div class="b">
+                      <div class="ba">Worst</div>
+                      <div class="bb">
+                        <div *ngFor ="let list of worstdata">{{list.discomName}} - {{list.substationName}}  -  {{list.feederName}} - 
+                            <span
+                            style="font-weight: 800;">
+                            <span *ngIf ="typeselected == 'Interruption'">({{list.outageCount}})</span>
+                            <span *ngIf ="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
+                            <span *ngIf ="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
+</span></div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!-- <div class="card" style ="border-radius: 10px;">
                         <div class="card-body">
                             <span style="width:100%">
                             <p style="float: left;font-size: 15px">   LAST DAY LOAD</p>
@@ -274,39 +342,70 @@
                              </highcharts-chart>  
                         </div>
                           </div> -->
-    </div>
-    <div class ="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
-            <div class="card" style ="border-radius: 10px;">
-                    <div class="card-body">
-                        <div class ="row" style="    margin-top: 0;">
-                            <div class ="col-6"style="border-right: 1px solid #c0c0c0;
-                            padding-right: 0px;" >
-                              <img  usemap="#image-map" style ="width:100%"src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/up_map.JPG" id="gmipam_0_image" >  
-                            
-                              <map name="image-map">
-                                  <area target="" id="pvvnl" alt="" class="mapper showcoords iopacity80 noborder  icolor7caa3a" title="" href="javascript:void(0)" coords="150,5,157,20,146,49,146,72,150,89,165,82,167,86,172,94,188,87,191,69,190,55,197,53,211,73,225,81,233,94,241,104,272,123,247,133,251,139,266,149,272,153,283,155,294,160,295,169,301,172,309,175,318,185,312,203,305,209,296,222,284,230,272,238,260,237,249,246,239,249,227,250,222,242,214,231,203,236,201,244,203,257,215,280,206,277,195,268,187,274,178,278,172,268,160,275,152,269,145,261,138,272,126,272,113,278,112,263,120,256,111,249,114,237,122,235,133,219,116,216,98,217,96,209,85,189,88,172,84,153,85,111,77,89,103,36,132,7,135,0" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null"> 
-                                
-                                     <area target="" id="mvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000" title="" href="javascript:void(0)" coords="341,185,325,189,351,193,358,186,364,187,364,196,372,197,377,207,386,204,394,195,408,202,417,212,432,221,442,228,447,226,444,212,452,215,464,228,472,234,483,238,489,244,502,248,510,256,522,271,527,281,535,280,563,304,578,309,591,317,595,311,603,311,626,322,638,333,654,343,665,341,678,339,677,344,684,350,678,361,693,362,680,367,674,372,663,373,657,377,656,383,661,392,661,397,650,395,647,399,655,400,661,408,664,417,662,423,656,428,652,433,645,427,638,428,633,424,627,429,627,439,635,449,647,460,669,468,680,470,691,473,700,478,717,487,723,492,723,506,718,506,712,499,705,492,701,495,698,506,696,511,699,520,686,517,679,510,675,512,676,521,668,518,663,522,656,526,645,523,636,517,628,520,628,528,625,535,620,537,610,533,589,533,572,534,567,527,555,523,547,523,544,530,547,533,550,542,544,545,531,549,521,561,512,554,509,544,499,539,492,532,483,528,472,533,467,530,458,523,449,522,440,510,437,497,426,489,417,477,406,460,394,446,389,437,384,421,374,402,350,387,347,350,329,340,312,332,304,330,294,323,289,315,277,310,266,306,259,296,245,291,226,283,214,276,210,264,200,247,198,236,205,231,212,230,221,239,228,249,233,245,242,245,252,240,264,233,274,237,294,218,308,203,320,188" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                              
-                                
-                                 <img id="mvvnl_img" class="animated zoomIn" src="images/new2.png" style="display: none;">
-                                  <area target="" id="puvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000" title="" href="javascript:void(0)" coords="684,365,696,364,708,370,729,372,737,375,745,387,752,378,752,367,763,367,785,372,806,385,814,397,817,404,812,411,817,414,824,414,828,437,835,439,843,455,853,453,861,461,868,465,868,470,862,472,849,473,839,472,833,472,828,480,821,482,816,483,816,490,821,491,828,495,838,500,843,505,838,514,829,519,822,517,826,528,836,537,842,547,853,549,861,555,868,558,874,561,880,567,888,572,884,582,875,582,867,579,858,576,856,582,851,584,844,582,835,578,829,586,823,595,808,600,801,606,798,610,799,617,778,624,760,628,746,647,746,667,750,682,756,695,762,700,770,710,763,722,754,725,755,735,762,745,750,764,738,782,731,795,727,799,721,800,706,798,700,796,689,788,682,779,673,769,685,758,678,738,682,718,678,705,667,700,651,700,643,697,641,708,633,706,625,700,624,691,618,684,611,686,598,678,589,673,587,663,577,656,556,650,551,637,546,634,545,625,534,623,522,616,509,614,504,611,508,601,500,595,485,591,488,584,482,577,472,575,465,571,456,572,445,571,436,563,430,556,439,556,429,550,413,548,400,544,401,534,410,522,420,514,439,511,455,528,471,533,483,528,498,536,510,550,521,558,544,545,548,536,543,530,554,521,568,528,572,536,589,529,611,533,623,538,628,521,634,516,646,525,660,528,667,521,677,524,675,508,689,522,698,523,695,512,700,495,709,496,718,507,726,502,714,482,704,480,688,472,671,470,646,461,623,439,628,429,634,424,646,428,652,433,662,422,657,401,648,397,665,397,656,383,661,372,674,370" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                                  
-                                  <area target="" id="kesco" class="mapper showcoords iopacity50 noborder  icolor000000" alt="" title="" href="javascript:void(0)" coords="394,446,402,454,408,459,412,474,421,479,423,485,433,495,439,504,433,513,418,516,413,517,402,506,396,503,398,489,391,476,383,463,390,456" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                              
-                              
-                              
-                                  <area target="" id="npcl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000" title="" href="javascript:void(0)" coords="99,221,103,214,116,215,127,218,132,222,131,229,121,234,116,232,105,230" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                              
-                              
-                                  <area target="" id="dvvnl" class="mapper showcoords iopacity50 noborder  icolor000000" alt="" title="" href="javascript:void(0)" coords="116,278,126,269,134,270,142,265,148,263,161,272,169,268,178,276,189,274,198,267,210,277,219,278,228,284,234,287,250,293,266,306,275,310,287,314,295,320,299,328,309,333,317,334,326,338,334,344,348,354,353,372,347,384,353,388,363,394,373,401,378,413,385,425,389,433,390,446,387,455,381,461,384,469,390,476,396,489,393,500,404,506,411,515,407,522,404,532,400,539,407,545,414,545,421,547,429,547,436,550,428,556,433,559,439,565,447,573,457,571,467,572,473,572,483,577,485,587,497,596,506,600,499,613,519,616,531,625,538,623,543,626,540,638,539,648,531,645,528,640,521,639,516,639,512,645,507,656,507,666,499,666,490,661,485,662,478,663,469,662,463,663,466,651,470,644,472,637,468,632,465,641,456,637,455,642,459,647,450,646,443,638,439,645,429,640,434,653,426,649,421,645,414,653,402,654,404,649,411,644,417,634,416,627,411,617,408,605,401,603,394,606,382,613,372,620,361,622,356,624,356,630,361,635,356,638,346,636,331,630,318,639,311,634,310,644,301,639,293,632,284,634,278,631,270,631,270,625,267,618,264,623,255,625,250,626,245,620,244,611,251,603,259,603,259,595,262,581,250,586,243,593,239,600,233,606,222,600,214,609,217,620,221,628,226,639,221,654,234,663,239,671,236,685,234,695,243,694,250,693,256,701,258,710,248,711,259,717,255,730,247,735,240,744,233,740,227,738,219,732,214,728,205,722,194,730,189,725,186,716,177,708,178,695,182,681,171,663,183,654,191,641,200,630,194,614,189,600,199,584,216,579,246,572,229,577,242,560,250,550,255,539,263,532,269,519,268,505,276,499,282,493,280,482,275,471,270,456,255,445,241,433,228,438,216,435,200,427,192,427,185,417,170,417,163,419,157,416,144,413,133,415,121,421,111,422,105,426,101,438,96,428,102,414,111,413,120,411,134,407,131,401,122,401,116,402,107,395,115,391,122,387,126,380,120,365,102,355,95,339,92,325,89,307,98,297,106,295,116,293" shape="poly" onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null" onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                                  <img id="dvvnl_img" class="animated zoomIn" src="images/dvvnl.png" style="display: none;">
-                              </map>
-                            </div>
-                          
-        </div>
-        </div>
-             <!-- <div class ="col-12	 col-sm-12 col-md-4 col-lg-2 col-xl-2">
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <div class="row" style="    margin-top: 0;">
+                    <div class="col-6" style="border-right: 1px solid #c0c0c0;
+                            padding-right: 0px;">
+                      <img usemap="#image-map" style="width:100%"
+                        src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/up_map.JPG"
+                        id="gmipam_0_image">
+
+                      <map name="image-map">
+                        <area target="" id="pvvnl" alt="" class="mapper showcoords iopacity80 noborder  icolor7caa3a"
+                          title="" href="javascript:void(0)"
+                          coords="150,5,157,20,146,49,146,72,150,89,165,82,167,86,172,94,188,87,191,69,190,55,197,53,211,73,225,81,233,94,241,104,272,123,247,133,251,139,266,149,272,153,283,155,294,160,295,169,301,172,309,175,318,185,312,203,305,209,296,222,284,230,272,238,260,237,249,246,239,249,227,250,222,242,214,231,203,236,201,244,203,257,215,280,206,277,195,268,187,274,178,278,172,268,160,275,152,269,145,261,138,272,126,272,113,278,112,263,120,256,111,249,114,237,122,235,133,219,116,216,98,217,96,209,85,189,88,172,84,153,85,111,77,89,103,36,132,7,135,0"
+                          shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+
+                        <area target="" id="mvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
+                          title="" href="javascript:void(0)"
+                          coords="341,185,325,189,351,193,358,186,364,187,364,196,372,197,377,207,386,204,394,195,408,202,417,212,432,221,442,228,447,226,444,212,452,215,464,228,472,234,483,238,489,244,502,248,510,256,522,271,527,281,535,280,563,304,578,309,591,317,595,311,603,311,626,322,638,333,654,343,665,341,678,339,677,344,684,350,678,361,693,362,680,367,674,372,663,373,657,377,656,383,661,392,661,397,650,395,647,399,655,400,661,408,664,417,662,423,656,428,652,433,645,427,638,428,633,424,627,429,627,439,635,449,647,460,669,468,680,470,691,473,700,478,717,487,723,492,723,506,718,506,712,499,705,492,701,495,698,506,696,511,699,520,686,517,679,510,675,512,676,521,668,518,663,522,656,526,645,523,636,517,628,520,628,528,625,535,620,537,610,533,589,533,572,534,567,527,555,523,547,523,544,530,547,533,550,542,544,545,531,549,521,561,512,554,509,544,499,539,492,532,483,528,472,533,467,530,458,523,449,522,440,510,437,497,426,489,417,477,406,460,394,446,389,437,384,421,374,402,350,387,347,350,329,340,312,332,304,330,294,323,289,315,277,310,266,306,259,296,245,291,226,283,214,276,210,264,200,247,198,236,205,231,212,230,221,239,228,249,233,245,242,245,252,240,264,233,274,237,294,218,308,203,320,188"
+                          shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+
+
+                        <img id="mvvnl_img" class="animated zoomIn" src="images/new2.png" style="display: none;">
+                        <area target="" id="puvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
+                          title="" href="javascript:void(0)"
+                          coords="684,365,696,364,708,370,729,372,737,375,745,387,752,378,752,367,763,367,785,372,806,385,814,397,817,404,812,411,817,414,824,414,828,437,835,439,843,455,853,453,861,461,868,465,868,470,862,472,849,473,839,472,833,472,828,480,821,482,816,483,816,490,821,491,828,495,838,500,843,505,838,514,829,519,822,517,826,528,836,537,842,547,853,549,861,555,868,558,874,561,880,567,888,572,884,582,875,582,867,579,858,576,856,582,851,584,844,582,835,578,829,586,823,595,808,600,801,606,798,610,799,617,778,624,760,628,746,647,746,667,750,682,756,695,762,700,770,710,763,722,754,725,755,735,762,745,750,764,738,782,731,795,727,799,721,800,706,798,700,796,689,788,682,779,673,769,685,758,678,738,682,718,678,705,667,700,651,700,643,697,641,708,633,706,625,700,624,691,618,684,611,686,598,678,589,673,587,663,577,656,556,650,551,637,546,634,545,625,534,623,522,616,509,614,504,611,508,601,500,595,485,591,488,584,482,577,472,575,465,571,456,572,445,571,436,563,430,556,439,556,429,550,413,548,400,544,401,534,410,522,420,514,439,511,455,528,471,533,483,528,498,536,510,550,521,558,544,545,548,536,543,530,554,521,568,528,572,536,589,529,611,533,623,538,628,521,634,516,646,525,660,528,667,521,677,524,675,508,689,522,698,523,695,512,700,495,709,496,718,507,726,502,714,482,704,480,688,472,671,470,646,461,623,439,628,429,634,424,646,428,652,433,662,422,657,401,648,397,665,397,656,383,661,372,674,370"
+                          shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+
+                        <area target="" id="kesco" class="mapper showcoords iopacity50 noborder  icolor000000" alt=""
+                          title="" href="javascript:void(0)"
+                          coords="394,446,402,454,408,459,412,474,421,479,423,485,433,495,439,504,433,513,418,516,413,517,402,506,396,503,398,489,391,476,383,463,390,456"
+                          shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+
+
+
+                        <area target="" id="npcl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
+                          title="" href="javascript:void(0)"
+                          coords="99,221,103,214,116,215,127,218,132,222,131,229,121,234,116,232,105,230" shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+
+
+                        <area target="" id="dvvnl" class="mapper showcoords iopacity50 noborder  icolor000000" alt=""
+                          title="" href="javascript:void(0)"
+                          coords="116,278,126,269,134,270,142,265,148,263,161,272,169,268,178,276,189,274,198,267,210,277,219,278,228,284,234,287,250,293,266,306,275,310,287,314,295,320,299,328,309,333,317,334,326,338,334,344,348,354,353,372,347,384,353,388,363,394,373,401,378,413,385,425,389,433,390,446,387,455,381,461,384,469,390,476,396,489,393,500,404,506,411,515,407,522,404,532,400,539,407,545,414,545,421,547,429,547,436,550,428,556,433,559,439,565,447,573,457,571,467,572,473,572,483,577,485,587,497,596,506,600,499,613,519,616,531,625,538,623,543,626,540,638,539,648,531,645,528,640,521,639,516,639,512,645,507,656,507,666,499,666,490,661,485,662,478,663,469,662,463,663,466,651,470,644,472,637,468,632,465,641,456,637,455,642,459,647,450,646,443,638,439,645,429,640,434,653,426,649,421,645,414,653,402,654,404,649,411,644,417,634,416,627,411,617,408,605,401,603,394,606,382,613,372,620,361,622,356,624,356,630,361,635,356,638,346,636,331,630,318,639,311,634,310,644,301,639,293,632,284,634,278,631,270,631,270,625,267,618,264,623,255,625,250,626,245,620,244,611,251,603,259,603,259,595,262,581,250,586,243,593,239,600,233,606,222,600,214,609,217,620,221,628,226,639,221,654,234,663,239,671,236,685,234,695,243,694,250,693,256,701,258,710,248,711,259,717,255,730,247,735,240,744,233,740,227,738,219,732,214,728,205,722,194,730,189,725,186,716,177,708,178,695,182,681,171,663,183,654,191,641,200,630,194,614,189,600,199,584,216,579,246,572,229,577,242,560,250,550,255,539,263,532,269,519,268,505,276,499,282,493,280,482,275,471,270,456,255,445,241,433,228,438,216,435,200,427,192,427,185,417,170,417,163,419,157,416,144,413,133,415,121,421,111,422,105,426,101,438,96,428,102,414,111,413,120,411,134,407,131,401,122,401,116,402,107,395,115,391,122,387,126,380,120,365,102,355,95,339,92,325,89,307,98,297,106,295,116,293"
+                          shape="poly"
+                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
+                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+                        <img id="dvvnl_img" class="animated zoomIn" src="images/dvvnl.png" style="display: none;">
+                      </map>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- <div class ="col-12	 col-sm-12 col-md-4 col-lg-2 col-xl-2">
                     <div class="card">
                             <div class="card-body">
                         
@@ -440,8 +539,8 @@
                           </div>
             </div> -->
 
-        </div>
-<!-- 
+              </div>
+              <!-- 
         <div class ="row">
             <div class ="col-12	 col-sm-12 col-md-6 col-lg-3 col-xl-3">
                 

@@ -569,6 +569,7 @@
     }
   }
 }
+
 .material-switch > input[type="checkbox"]:checked + label::before {
     background: inherit;
     opacity: 0.5;
@@ -576,4 +577,56 @@
 .material-switch > input[type="checkbox"]:checked + label::after {
     background: inherit;
     left: 20px;
+}
+ .grid {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 2px 5px;
+}
+ .grid .a {
+  flex: 1 1 0%;
+}
+ .grid .a .aa {
+  flex: 1 1 0%;
+}
+ .grid .a .ab {
+  font-size: 13px;
+  color: rgba(84, 77, 77, 0.84);
+  display: block;
+  text-align: left;
+  padding: 10px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: initial;
+}
+.grid .a .ab div {
+  margin-top: 2px;
+  line-height: 20px;
+  padding: 2px;
+  border-radius: 5px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: initial;
+  background: rgba(86, 210, 90, 0.37);
+}
+ .grid .b {
+  flex: 1 1 0%;
+}
+ .grid .b .bb {
+  display: block;
+  font-size: 13px;
+  color: rgba(84, 77, 77, 0.84);
+  text-align: left;
+}
+ .grid .b .bb div {
+  margin-top: 2px;
+  line-height: 20px;
+  border-left: 3px solid red;
+  padding: 2px;
+  border-radius: 5px;
+  background: rgba(202, 85, 85, 0.37);
 }

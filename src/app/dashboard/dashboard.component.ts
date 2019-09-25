@@ -23,9 +23,12 @@ export class DashboardComponent implements OnInit {
   chart;
   chart1;
   chart2;
+  chart8;
   pipe = new DatePipe('en-US');
 
   constructor(private service :FeederService) {
+     this.bsValue = new Date(Date.now() - 864e5);
+
         var startdate =  moment(new Date());
 startdate =startdate.subtract(1, "days");
  
@@ -39,9 +42,14 @@ startdate =startdate.subtract(1, "days");
      console.log(chart);
      console.log("dsad")
    };
+
    this.chartCallback1 = chart1 => {
       self.chart1 = chart1;
       console.log(chart1);
+     };
+     this.chartCallback8 = chart8 => {
+      self.chart8 = chart8;
+      console.log(chart8);
      };
      this.chartCallback2 = chart2 => {
       self.chart2 = chart2;
@@ -128,11 +136,12 @@ chartOptions = {
    updateFlag = false;
    updateFlag1 = false;
    updateFlag2 = false;
- 
+   updateFlag8 = false;
    chartCallback;
    chartCallback1;
    chartCallback2;
-  
+   chartCallback8;
+
  chartOptions1 = {   
    chart : {
       plotBorderWidth: null,
@@ -173,6 +182,7 @@ chartOptions = {
       ]
    }]
 };
+
 chartOptions3 = {   
    chart : {
       type: 'column'
@@ -205,6 +215,39 @@ chartOptions3 = {
        }  
          ]
 };
+chartOptions7 = {   
+   chart : {
+      type: 'column'
+   },
+   colors: ["#0cc2a9","#f47a25","#7673e6","#ffb209","#0cc3a9"],
+   title : {
+      text: ''   
+   },
+   xAxis : {
+      categories: ['DVVNL', 'KESco','MVVNL','PuVVNL','PVVNL']
+   },
+   yAxis : {
+      allowDecimals: false,
+      min: 0,
+      title: {
+         text: ''
+      }     
+   },
+   plotOptions : {
+      column: {
+      }
+   },
+   credits : {
+      enabled: false
+   },
+   series : [
+      {
+         name: 'Average Supply Duration',
+         data: [521, 332,324,24,51],
+       }  
+         ]
+};
+
  chartOptions4 = {               
    title : {
       text: ''   
@@ -410,7 +453,7 @@ chartOption6 ={
 
 
 }
-chartOptions7 = {   
+chartOptions8 = {   
    chart: {
       type: 'column'
    },
@@ -443,7 +486,7 @@ chartOptions7 = {
    },
    series: [ 
    {
-      name: 'Load',
+      name: 'Feeder',
       data: [83, 78, 98,32,51]
    }, 
     
@@ -612,16 +655,82 @@ var minutes2 = parseInt(a2[0]) * 60 + parseInt(a2[1])  +  (parseInt(a2[2])/60)  
          
       })
 },300)
-
 }
 
 userdata :any = this.service.getuser;
-
+nameFeederData :any = [];
+dataFeederData :any = [];
 onValueChange(value: Date): void {
      this.averageSupply(value,'1')
  }
+ typeselected : any = "Interruption";
+ bestdata:any ;
+ selectedType:any = '';
+ worstdata :any;
+ getWorstBestFeeder(type){
+ if(type == 'interruption'){
+    this.typeselected = 'Interruption'
+ }else if(type == 'average_duration'){
+   this.typeselected = 'Average Duration'
+
+ }else if(type == 'duration'){
+   this.typeselected = 'Duration'
+
+ 
+}
+     this.nameFeederData = [];
+    this.dataFeederData = [];
+      let dataJson = {
+      "login_id ":this.userdata.login_id,
+      "token_id ":this.userdata.resources[0].token_id,
+      "access_area":this.userdata.access_area,
+      "access_area_id":'1',
+      "project_id":"EODB",
+       "month": this.pipe.transform(new Date(), 'yyyy-MM') ,
+     "type":type,
+     "feederCount":"5"
+     }
+     this.bestdata=[]
+     this.worstdata = [];
+     this.service.getWorstBest(dataJson).subscribe(res=>{
+ for(var i = 0;i<res.resources.length;i++){
+   if(res.resources[i].status == 'BEST'){
+      this.bestdata.push(res.resources[i]);
+   }else  {
+      this.worstdata.push(res.resources[i]);
+   }
+}
+
+// if(this.selectedType == 'Best'){
+
+//    for(var i =0 ; i<this.bestdata.length ; i ++){
+//      this.nameFeederData.push(this.bestdata[i].feederName)
+//      this.dataFeederData.push(parseInt(this.bestdata[i].outageCount))
+
+//      // this.chartOptions8.series.push({
+//      //    name : this.bestdata[i].feederName,
+
+//      // })
+//   }
+
+//  }
+// console.log(JSON.stringify(this.chartOptions8));
+// this.chart8.hideLoading();
+
+this.updateFlag8 = true;
+setTimeout(() => {
+
+this.updateFlag8 = false;
+ },122);
+    })
+   
+   
+ }
+
   ngOnInit() {
      this.feederProjectCount();
+     this.getWorstBestFeeder('interruption');
+
    }
   getClass(data){
      if(data == 'ALL'){
