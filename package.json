@@ -31,6 +31,7 @@
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "ng-circle-progress": "^1.5.1",
+    "ng-maphilight": "^1.0.1",
     "ngx-bootstrap": "^5.1.2",
     "popper": "^1.0.1",
     "rxjs": "^6.4.0",

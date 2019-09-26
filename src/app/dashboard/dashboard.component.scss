@@ -630,3 +630,26 @@
   border-radius: 5px;
   background: rgba(202, 85, 85, 0.37);
 }
+.activeClass{
+  .card{
+    cursor: pointer;
+    background: #28b6f4 !important;
+    color: white !important;
+  
+  }
+
+}
+.activeonHver {
+  &:hover{ .card {
+    p{
+      span{
+        color: white;
+  
+      }
+    }
+    cursor: pointer;
+    background: #28b6f4 !important;
+    color: white !important;
+  } }
+ 
+}

@@ -12,10 +12,11 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
+import { MaphilightModule } from 'ng-maphilight'
 
 @NgModule({
   declarations: [DashboardComponent,HeaderComponent],
-  imports: [MatMenuModule,AgmCoreModule.forRoot({
+  imports: [MatMenuModule,MaphilightModule,AgmCoreModule.forRoot({
     apiKey: ''
   }),FormsModule,
     CommonModule,    BsDatepickerModule.forRoot() ,DashRoutingModule,BsDropdownModule ,   CollapseModule.forRoot(),HighchartsChartModule

@@ -2,11 +2,12 @@
 <div class="container-fluid">
   <div class="row topBox">
     <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-      <div class="row" *ngFor="let list of ProjectCountList" (click)="updateChart()">
+      <div class="row activeonHver "
+      *ngFor="let list of ProjectCountList" (click)="selectProject(list.id)"  [ngClass]="{'activeClass': projectId== list.id}">
         <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3" style="padding: 0;
                 padding-left: 7px;
                 margin-top: 31px;
-                padding-top: 5px;">
+                padding-top: 5px;" >
           <div [ngClass]="getClass(list.id)" style=" 
                         padding: 0;
                         margin: 0;
@@ -14,7 +15,7 @@
                         padding-bottom: 5px;
                         border-radius: 0;">
             <div class="card-body" style="padding: 0px;">
-              <p><strong>{{list.id}}</strong></p>
+              <p><strong>{{list.id}}  </strong></p>
             </div>
           </div>
         </div>
@@ -54,11 +55,11 @@
     </div>
     <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10" style="background: #f0eff7 ;">
       <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
           <span style="color: #616060"> <strong>DASHBOARD</strong></span>
 
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 ">
+          <div class="row"  *ngIf ="projectId != '16 NN'">
+            <div class="col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6 " >
               <div class="card" style="border-radius: 10px;">
                 <div class="card-body">
                   <span style="width:60% ;float: left;">
@@ -301,27 +302,27 @@
                     <div class="a">
                       <div class="aa">Best</div>
                       <div class="ab">
-                        <div *ngFor ="let list of bestdata">{{list.discomName}} - {{list.substationName}}  -  {{list.feederName}} - 
-                          <span
-                            style="font-weight: 800;">
-                            <span *ngIf ="typeselected == 'Interruption'">({{list.outageCount}})</span>
-                            <span *ngIf ="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
-                            <span *ngIf ="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
-</span>
-                          </div>
-                        
+                        <div *ngFor="let list of bestdata">{{list.discomName}} - {{list.substationName}} -
+                          {{list.feederName}} -
+                          <span style="font-weight: 800;">
+                            <span *ngIf="typeselected == 'Interruption'">({{list.outageCount}})</span>
+                            <span *ngIf="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
+                            <span *ngIf="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
+                          </span>
+                        </div>
+
                       </div>
                     </div>
                     <div class="b">
                       <div class="ba">Worst</div>
                       <div class="bb">
-                        <div *ngFor ="let list of worstdata">{{list.discomName}} - {{list.substationName}}  -  {{list.feederName}} - 
-                            <span
-                            style="font-weight: 800;">
-                            <span *ngIf ="typeselected == 'Interruption'">({{list.outageCount}})</span>
-                            <span *ngIf ="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
-                            <span *ngIf ="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
-</span></div>
+                        <div *ngFor="let list of worstdata">{{list.discomName}} - {{list.substationName}} -
+                          {{list.feederName}} -
+                          <span style="font-weight: 800;">
+                            <span *ngIf="typeselected == 'Interruption'">({{list.outageCount}})</span>
+                            <span *ngIf="typeselected == 'Average Duration'">({{list.averageOutageDuration}})</span>
+                            <span *ngIf="typeselected == 'Duration'">({{list.total_Outage_Duration}})</span>
+                          </span></div>
 
                       </div>
                     </div>
@@ -349,61 +350,135 @@
                   <div class="row" style="    margin-top: 0;">
                     <div class="col-6" style="border-right: 1px solid #c0c0c0;
                             padding-right: 0px;">
-                      <img usemap="#image-map" style="width:100%"
-                        src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/up_map.JPG"
-                        id="gmipam_0_image">
-
-                      <map name="image-map">
-                        <area target="" id="pvvnl" alt="" class="mapper showcoords iopacity80 noborder  icolor7caa3a"
-                          title="" href="javascript:void(0)"
-                          coords="150,5,157,20,146,49,146,72,150,89,165,82,167,86,172,94,188,87,191,69,190,55,197,53,211,73,225,81,233,94,241,104,272,123,247,133,251,139,266,149,272,153,283,155,294,160,295,169,301,172,309,175,318,185,312,203,305,209,296,222,284,230,272,238,260,237,249,246,239,249,227,250,222,242,214,231,203,236,201,244,203,257,215,280,206,277,195,268,187,274,178,278,172,268,160,275,152,269,145,261,138,272,126,272,113,278,112,263,120,256,111,249,114,237,122,235,133,219,116,216,98,217,96,209,85,189,88,172,84,153,85,111,77,89,103,36,132,7,135,0"
-                          shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-
-                        <area target="" id="mvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
-                          title="" href="javascript:void(0)"
-                          coords="341,185,325,189,351,193,358,186,364,187,364,196,372,197,377,207,386,204,394,195,408,202,417,212,432,221,442,228,447,226,444,212,452,215,464,228,472,234,483,238,489,244,502,248,510,256,522,271,527,281,535,280,563,304,578,309,591,317,595,311,603,311,626,322,638,333,654,343,665,341,678,339,677,344,684,350,678,361,693,362,680,367,674,372,663,373,657,377,656,383,661,392,661,397,650,395,647,399,655,400,661,408,664,417,662,423,656,428,652,433,645,427,638,428,633,424,627,429,627,439,635,449,647,460,669,468,680,470,691,473,700,478,717,487,723,492,723,506,718,506,712,499,705,492,701,495,698,506,696,511,699,520,686,517,679,510,675,512,676,521,668,518,663,522,656,526,645,523,636,517,628,520,628,528,625,535,620,537,610,533,589,533,572,534,567,527,555,523,547,523,544,530,547,533,550,542,544,545,531,549,521,561,512,554,509,544,499,539,492,532,483,528,472,533,467,530,458,523,449,522,440,510,437,497,426,489,417,477,406,460,394,446,389,437,384,421,374,402,350,387,347,350,329,340,312,332,304,330,294,323,289,315,277,310,266,306,259,296,245,291,226,283,214,276,210,264,200,247,198,236,205,231,212,230,221,239,228,249,233,245,242,245,252,240,264,233,274,237,294,218,308,203,320,188"
-                          shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-
-
-                        <img id="mvvnl_img" class="animated zoomIn" src="images/new2.png" style="display: none;">
-                        <area target="" id="puvvnl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
-                          title="" href="javascript:void(0)"
-                          coords="684,365,696,364,708,370,729,372,737,375,745,387,752,378,752,367,763,367,785,372,806,385,814,397,817,404,812,411,817,414,824,414,828,437,835,439,843,455,853,453,861,461,868,465,868,470,862,472,849,473,839,472,833,472,828,480,821,482,816,483,816,490,821,491,828,495,838,500,843,505,838,514,829,519,822,517,826,528,836,537,842,547,853,549,861,555,868,558,874,561,880,567,888,572,884,582,875,582,867,579,858,576,856,582,851,584,844,582,835,578,829,586,823,595,808,600,801,606,798,610,799,617,778,624,760,628,746,647,746,667,750,682,756,695,762,700,770,710,763,722,754,725,755,735,762,745,750,764,738,782,731,795,727,799,721,800,706,798,700,796,689,788,682,779,673,769,685,758,678,738,682,718,678,705,667,700,651,700,643,697,641,708,633,706,625,700,624,691,618,684,611,686,598,678,589,673,587,663,577,656,556,650,551,637,546,634,545,625,534,623,522,616,509,614,504,611,508,601,500,595,485,591,488,584,482,577,472,575,465,571,456,572,445,571,436,563,430,556,439,556,429,550,413,548,400,544,401,534,410,522,420,514,439,511,455,528,471,533,483,528,498,536,510,550,521,558,544,545,548,536,543,530,554,521,568,528,572,536,589,529,611,533,623,538,628,521,634,516,646,525,660,528,667,521,677,524,675,508,689,522,698,523,695,512,700,495,709,496,718,507,726,502,714,482,704,480,688,472,671,470,646,461,623,439,628,429,634,424,646,428,652,433,662,422,657,401,648,397,665,397,656,383,661,372,674,370"
-                          shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-
-                        <area target="" id="kesco" class="mapper showcoords iopacity50 noborder  icolor000000" alt=""
-                          title="" href="javascript:void(0)"
-                          coords="394,446,402,454,408,459,412,474,421,479,423,485,433,495,439,504,433,513,418,516,413,517,402,506,396,503,398,489,391,476,383,463,390,456"
-                          shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+                      <maphilight style="width:100%" id="statesMap" [config]="config">
 
 
 
-                        <area target="" id="npcl" alt="" class="mapper showcoords iopacity50 noborder  icolor000000"
-                          title="" href="javascript:void(0)"
-                          coords="99,221,103,214,116,215,127,218,132,222,131,229,121,234,116,232,105,230" shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
+                        <img id="Image-Maps-Com-image-maps-2019-09-25-120045"
+                          src="https://www.image-maps.com/m/private/0/uiokscsp9g98g1spbi144ib328_up_map-2.jpg"
+                          border="0" width="500" height="450" orgWidth="500" orgHeight="450"
+                          usemap="#image-maps-2019-09-25-120045" alt="" />
+                        <map name="image-maps-2019-09-25-120045" id="ImageMapsCom-image-maps-2019-09-25-120045">
+                          <area shape="rect" coords="498,448,500,450" alt="Image Map" style="outline:none;"
+                            title="Image Map"  />
+                          <area id="PVNNL" alt="PVNNL" title="PVNNL"  shape="poly"
+                            coords="80,2,62,20,52,31,48,53,48,68,50,83,56,98,56,114,64,116,75,119,69,134,67,144,81,151,90,145,100,149,111,151,110,134,121,127,132,136,147,135,165,120,168,106,162,96,137,86,140,79,140,61,116,40,103,53,96,56,84,49,75,38,85,25,86,16"
+                            style="outline:none;" target="_self" data-maphilight='PVNNL' />
+                          <area id="DVVNL" alt="DVVNL" title="DVVNL"  shape="poly"
+                            coords="68,158,62,166,48,169,48,181,52,188,61,195,64,208,65,221,79,223,55,238,76,233,92,234,104,232,117,238,132,246,151,246,154,258,154,269,155,283,152,302,142,319,137,323,121,327,112,332,110,346,110,358,103,370,103,379,101,394,101,406,111,410,115,409,131,413,137,408,139,392,130,376,121,363,121,346,124,332,144,333,144,346,155,350,166,359,183,359,199,358,211,348,227,339,234,354,226,366,244,363,257,361,269,359,266,376,284,375,291,363,308,363,307,351,294,351,286,347,284,339,270,334,260,320,248,324,246,318,242,309,233,310,224,303,235,287,230,284,220,278,221,262,217,256,220,246,216,238,211,228,195,223,195,213,194,199,175,192,166,186,158,178,140,170,118,162,109,154,87,155,80,148,67,151"
+                            style="outline:none;" target="_self" />
+                          <area id="MVVNL" alt="MVVNL" title="MVVNL"  shape="poly"
+                            coords="182,105,172,122,166,125,149,132,141,132,135,144,127,135,113,132,113,147,119,155,130,157,138,164,147,168,161,176,175,185,186,190,197,194,198,207,199,221,215,224,215,237,218,245,228,257,239,264,241,274,250,281,258,291,266,298,278,300,289,306,294,315,308,305,306,292,323,293,322,302,336,295,343,300,358,293,369,295,378,288,387,291,392,280,407,280,398,269,383,266,372,263,363,260,353,250,351,243,356,240,366,244,372,236,371,225,364,227,369,223,367,217,373,209,384,210,384,202,378,192,371,193,362,193,354,185,349,180,339,177,330,181,320,173,309,168,300,155,294,159,292,146,275,142,269,132,252,124,249,131,243,123,232,116,226,110,212,113,205,110,202,104,193,107"
+                            style="outline:none;" target="_self" />
+                          <area id="PUVVNL" alt="PUVVNL" title="PUVVNL"  shape="poly"
+                            coords="255,295,248,291,248,286,244,286,238,291,230,297,227,303,235,308,244,311,251,322,264,322,274,326,281,335,290,343,299,350,310,360,321,366,334,372,340,384,353,389,363,397,375,397,387,398,383,411,383,421,381,439,391,442,410,443,414,437,424,420,425,413,427,403,427,394,424,386,416,374,418,361,426,356,439,347,446,344,454,337,465,334,475,322,490,327,493,319,484,309,472,304,463,295,469,283,469,274,456,272,468,264,478,262,486,260,480,249,467,250,467,242,466,234,456,226,456,215,441,215,427,206,442,207,422,207,411,210,402,205,390,205,379,209,371,212,372,224,364,224,373,233,367,242,361,240,354,241,354,253,367,258,381,262,395,268,410,274,405,288,398,281,396,279,393,290,382,292,378,295,368,296,357,292,354,299,347,302,334,297,325,298,316,298,312,295,308,300,302,307,298,311,293,315,286,310,285,304,276,296,270,297,261,305"
+                            style="outline:none;" target="_self" />
+                          <area id="NPCL" alt="NPCL" title="NPCL"  shape="poly"
+                            coords="59,126,59,121,72,123,70,139,68,134" style="outline:none;" target="_self" />
+                          <area id="KESCO" alt="KESCO" title="KESCO"  shape="poly"
+                            coords="223,254,232,262,238,271,246,283,240,290,232,293,229,287,224,284,227,277,222,273,221,266,217,263,216,257"
+                            style="outline:none;" target="_self" />
+                        </map>
 
-
-                        <area target="" id="dvvnl" class="mapper showcoords iopacity50 noborder  icolor000000" alt=""
-                          title="" href="javascript:void(0)"
-                          coords="116,278,126,269,134,270,142,265,148,263,161,272,169,268,178,276,189,274,198,267,210,277,219,278,228,284,234,287,250,293,266,306,275,310,287,314,295,320,299,328,309,333,317,334,326,338,334,344,348,354,353,372,347,384,353,388,363,394,373,401,378,413,385,425,389,433,390,446,387,455,381,461,384,469,390,476,396,489,393,500,404,506,411,515,407,522,404,532,400,539,407,545,414,545,421,547,429,547,436,550,428,556,433,559,439,565,447,573,457,571,467,572,473,572,483,577,485,587,497,596,506,600,499,613,519,616,531,625,538,623,543,626,540,638,539,648,531,645,528,640,521,639,516,639,512,645,507,656,507,666,499,666,490,661,485,662,478,663,469,662,463,663,466,651,470,644,472,637,468,632,465,641,456,637,455,642,459,647,450,646,443,638,439,645,429,640,434,653,426,649,421,645,414,653,402,654,404,649,411,644,417,634,416,627,411,617,408,605,401,603,394,606,382,613,372,620,361,622,356,624,356,630,361,635,356,638,346,636,331,630,318,639,311,634,310,644,301,639,293,632,284,634,278,631,270,631,270,625,267,618,264,623,255,625,250,626,245,620,244,611,251,603,259,603,259,595,262,581,250,586,243,593,239,600,233,606,222,600,214,609,217,620,221,628,226,639,221,654,234,663,239,671,236,685,234,695,243,694,250,693,256,701,258,710,248,711,259,717,255,730,247,735,240,744,233,740,227,738,219,732,214,728,205,722,194,730,189,725,186,716,177,708,178,695,182,681,171,663,183,654,191,641,200,630,194,614,189,600,199,584,216,579,246,572,229,577,242,560,250,550,255,539,263,532,269,519,268,505,276,499,282,493,280,482,275,471,270,456,255,445,241,433,228,438,216,435,200,427,192,427,185,417,170,417,163,419,157,416,144,413,133,415,121,421,111,422,105,426,101,438,96,428,102,414,111,413,120,411,134,407,131,401,122,401,116,402,107,395,115,391,122,387,126,380,120,365,102,355,95,339,92,325,89,307,98,297,106,295,116,293"
-                          shape="poly"
-                          onmouseover="setAreaOver(this,'gmipam_0_canvas','0,0,255','0,0,0','0.33',0,0,0);null"
-                          onmouseout="setAreaOut(this,'gmipam_0_canvas',0,0);null">
-                        <img id="dvvnl_img" class="animated zoomIn" src="images/dvvnl.png" style="display: none;">
-                      </map>
+                      </maphilight>
                     </div>
+                  </div>
+                </div>
+                </div></div></div>
+                <div class="row"  *ngIf ="projectId == '16 NN'">
+                 <div class ="col-12	 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                   <span style="color:red ; width: 30%;float: left;"> 16 NN STATUS- AS ON DATE (25-09-2019)    </span>
+                   <span class=" form-group" style=" width: 15% ; float: left;">
+                      <input type="text" [maxDate]="maxDate" ngModel   
+                        placeholder="Select Date" class="form-control"  bsDatepicker
+                        [bsConfig]="{ isAnimated: true }">
+                    </span>
+                   </div>
+                   <div class ="col-12	 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                     <div class ="row">
+ <div class ="col-12	 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+    <div class="card">
+        <div class="card-body">
+    
+            <div class ="row" style="    margin-top: 0;">
+                <div class ="col-6"style="border-right: 1px solid #c0c0c0;
+                padding-right: 0px;" >
+                   <p>DVVNL</p> 
+                   <p>21342</p>
+                   <p>Installed</p> 
+                </div>
+                 
+
+            </div>
+
+        </div>
+      </div>
+  </div>   
+      <div class ="col-12	 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+          <div class="card">
+              <div class="card-body">
+          
+                  <div class ="row" style="    margin-top: 0;">
+                      <div class ="col-6"style="border-right: 1px solid #c0c0c0;
+                      padding-right: 0px;" >
+                         <p>MVVNL</p> 
+                         <p>21342</p>
+                         <p>Installed</p> 
+                      </div>
+                     
 
                   </div>
+
+              </div>
+            </div>
+    </div>
+    <div class ="col-12	 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <div class="card">
+            <div class="card-body">
+        
+                <div class ="row" style="    margin-top: 0;">
+                    <div class ="col-6"style="border-right: 1px solid #c0c0c0;
+                    padding-right: 0px;" >
+                       <p>PuVVNL</p> 
+                       <p>21342</p>
+                       <p>Installed</p> 
+                    </div>
+                     
+
+                </div>
+
+            </div>
+          </div>
+      </div>
+      <div class ="col-12	 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+          <div class="card">
+              <div class="card-body">
+          
+                  <div class ="row" style="    margin-top: 0;">
+                      <div class ="col-6"style="border-right: 1px solid #c0c0c0;
+                      padding-right: 0px;" >
+                         <p>PVVNL</p> 
+                         <p>21342</p>
+                         <p>Installed</p> 
+                      </div>
+                      <div class ="col-6" style="padding-left: 0;">
+                               <img src="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/graph.png" alt="Bar-graph" border="0" style="    margin-right: 7px;
+                               float: left;
+                               width: 21px;"> 
+                              <p>Total Live</p>
+                              <p>2314</p></div>
+  
+                  </div>
+  
+              </div>
+            </div>
+        </div>
+
+                    </div>
+ 
+</div></div>
+                 
+              </div>
                 </div>
                 <!-- <div class ="col-12	 col-sm-12 col-md-4 col-lg-2 col-xl-2">
                     <div class="card">
@@ -539,8 +614,7 @@
                           </div>
             </div> -->
 
-              </div>
-              <!-- 
+               <!-- 
         <div class ="row">
             <div class ="col-12	 col-sm-12 col-md-6 col-lg-3 col-xl-3">
                 

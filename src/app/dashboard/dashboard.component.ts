@@ -15,6 +15,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+   projectId:any = 'ALL';
+   selectProject(data){
+      this.projectId = data;
+
+     if(data != '16 NN'){
+      this.feederProjectCount();
+      this.getWorstBestFeeder('interruption');
+      this.averageSupply(
+         this.bsValue,'1')
+     }else{
+
+     }
+     
+   }
+   config = {
+      fade: true,
+      alwaysOn: false,
+      neverOn: false,
+  
+      // fill
+      fill: true,
+      fillColor: '#ffffff',
+      fillOpacity: 0.4,
+  
+      // stroke
+      stroke: true,
+      strokeColor: '#4d0ec0',
+      strokeOpacity: 1,
+      strokeWidth: 1,
+  
+      // shadow:
+      shadow: true,
+      shadowColor: '#000000',
+      shadowOpacity: 0.8,
+      shadowRadius: 10
+    }
    bsValue = new Date(Date.now() - 864e5);
    maxDate: Date;
    title = 'My first AGM project';
@@ -84,7 +120,7 @@ chartOptions = {
       layout: 'vertical',
       align: 'top',
       verticalAlign: 'top',
-      x: 220,
+      x: 320,
       y: 20,
       floating: true,
       borderWidth: 1
@@ -500,7 +536,7 @@ feederProjectCount(){
    "token_id ":this.userdata.resources[0].token_id,
    "access_area":this.userdata.access_area,
    "access_area_id":'1',
-   "project_id":this.userdata.project};
+   "project_id":this.projectId};
    this.service.getfeederProject(projectdata).subscribe(res=>{
       // alert(JSON.stringify(res.resources))
       this.ProjectCountList = res.resources;
@@ -529,7 +565,7 @@ chartConstructor1 = "chart";
    "token_id ":this.userdata.resources[0].token_id,
    "access_area":this.userdata.access_area,
    "access_area_id":'1',
-   "project_id":this.userdata.project
+   "project_id":this.projectId
 };
    
    this.chart.showLoading();
@@ -578,12 +614,12 @@ chartConstructor1 = "chart";
           }
 
       // this.chartOptions.xAxis.categories = this.discomName;
-     
+      
+      this.chartOptions.xAxis.categories = this.discomName;
       this.chartOptions.series[0].data = this.okdataCount;
       this.chartOptions.series[1].data = this.notdatacount;
       this.chartOptions.series[2].data = this.outagedataCount;
-      console.log(JSON.stringify(this.chartOptions.series))
-        // this.chartOptions.series[3].data = this.modemNotconnectingCount;
+         // this.chartOptions.series[3].data = this.modemNotconnectingCount;
        this.updateFlag = true;
       setTimeout(() => {
 
@@ -614,7 +650,7 @@ averageSupply(date:Date,type){
    "token_id ":this.userdata.resources[0].token_id,
    "access_area":this.userdata.access_area,
    "access_area_id":'1',
-   "project_id":this.userdata.project,
+   "project_id":this.projectId,
     "date": this.pipe.transform(date, 'yyyy-MM-dd')
 };
 setTimeout(()=>{
@@ -685,7 +721,7 @@ onValueChange(value: Date): void {
       "token_id ":this.userdata.resources[0].token_id,
       "access_area":this.userdata.access_area,
       "access_area_id":'1',
-      "project_id":"EODB",
+      "project_id":this.projectId,
        "month": this.pipe.transform(new Date(), 'yyyy-MM') ,
      "type":type,
      "feederCount":"5"
