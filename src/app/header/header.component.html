@@ -20,7 +20,7 @@
                                     font-size: 42px;
                                 "><img src ="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/dashboard.png"></p><span
                                 _ngcontent-kme-c2="" class="second"
-                                style="position: absolute;top: 90%;right: 0;left:8%">Dashboard</span>
+                                style="position: absolute;top: 90%;right: 0;left:8%;cursor: pointer;"  (click) = "changePage('/dashboard')" >Dashboard</span>
                         </div>
                         <div _ngcontent-kme-c2="" class="col-2">
                                 <p _ngcontent-kme-c2="" class="first" style="
@@ -48,7 +48,27 @@
                                                     font-size: 42px;
                                                 "><img src ="https://www.vibestest.com/client_project/clients_website_templates/2018/Xenius_Dashboard/images/feeder.png"></p><span
                                                 _ngcontent-kme-c2="" class="second"
-                                                style="position: absolute;top: 90%;left:8%;">MIS Report</span>
+                                                style="position: absolute;top: 90%;left:8%;">
+                                                <button mat-button  [matMenuTriggerFor]="menu1" style=" padding: 0;
+                                                font-size: 12px;
+                                                border: 0px;
+                                                /* border-radius: 10px; */
+                                                /* float: right; */
+                                                background: #35a6ac;"  data-flip="true"  type="button" class="btn btn-primary dropdown-toggle"
+                                                aria-controls="dropdown-basic">
+                                          MIS Report <span class="caret"></span>
+                                        </button>
+                                       
+<mat-menu #menu1="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Supply Report</button>
+   </mat-menu>
+  
+  <mat-menu #vertebrates="matMenu">
+    <button mat-menu-item (click) = "changePage('/dashboard/Supply/Daily/Report')">Daily Report</button>
+    <button mat-menu-item  (click) = "changePage('/dashboard/Supply/Weekly/Report')">Three Day Report</button>
+    <button mat-menu-item (click) = "changePage('/dashboard/Supply/Three/Day/Report')" >Weekly Report</button>
+   </mat-menu>
+      </span>
                                         </div> 
                                         
                     </div>

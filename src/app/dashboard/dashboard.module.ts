@@ -13,9 +13,12 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import { MaphilightModule } from 'ng-maphilight'
+import { SupplyReportComponent } from '../supply-report/supply-report.component';
+import { SupplyweeklyReportComponent } from '../supplyweekly-report/supplyweekly-report.component';
+import { SupplythreeReportComponent } from '../supplythree-report/supplythree-report.component';
 
 @NgModule({
-  declarations: [DashboardComponent,HeaderComponent],
+  declarations: [SupplyReportComponent,DashboardComponent,HeaderComponent, SupplyweeklyReportComponent, SupplythreeReportComponent],
   imports: [MatMenuModule,MaphilightModule,AgmCoreModule.forRoot({
     apiKey: ''
   }),FormsModule,

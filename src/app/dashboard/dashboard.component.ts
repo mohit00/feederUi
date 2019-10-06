@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit {
    projectId:any = 'ALL';
    selectProject(data){
       this.projectId = data;
-
-     if(data != '16 NN'){
+ 
+     if(data !='16 NN'){
       this.feederProjectCount();
       this.getWorstBestFeeder('interruption');
       this.averageSupply(
@@ -75,9 +75,7 @@ startdate =startdate.subtract(1, "days");
 
    this.chartCallback = chart => {
      self.chart = chart;
-     console.log(chart);
-     console.log("dsad")
-   };
+    };
 
    this.chartCallback1 = chart1 => {
       self.chart1 = chart1;
@@ -117,12 +115,12 @@ chartOptions = {
       text: ''  
    },
    legend : {
-      layout: 'vertical',
-      align: 'top',
-      verticalAlign: 'top',
-      x: 320,
-      y: 20,
-      floating: true,
+      layout: 'horizontal',
+      // align: 'top',
+      // verticalAlign: 'top',
+      // x: 320,
+      // y: 20,
+      floating: false,
       borderWidth: 1
       },
       xAxis:{
