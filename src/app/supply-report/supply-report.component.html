@@ -1,17 +1,204 @@
 <app-header></app-header>
 <div class="container-fluid" style="width: 98%;">
-        <div class="row topBox">
-      
-<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
-           <span style = "color:#3c5f8a" (click) = "changePage('/dashboard')"> <u>DashBoard </u> </span> <span style="color: #616060"> <strong>/ Daily Report </strong></span>
-  
-            <div class="row" >
-              <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
-                <div class="card" style="border-radius: 10px;">
-                  <div class="card-body"></div></div></div>
-                </div></div>
+  <div class="row topBox">
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <span style="color:#3c5f8a" (click)="changePage('/dashboard')"> <u>DashBoard </u> </span> <span
+            style="color: #616060"> <strong>/ Daily Report </strong></span>
+
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <form [formGroup]="authForm">
+                    <div class="row">
+
+                      <div class="col-3">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Select Discom</mat-label>
+                          <mat-select required name="discom" formControlName="discom_id"
+                            (selectionChange)="datachange('1')">
+                            <mat-option value="All">All</mat-option>
+                            <mat-option value="5a71b6d35156d7.70878980">Dakshinanchal</mat-option>
+                            <mat-option value="5a71b8a355c2d4.24012768">Kesco</mat-option>
+                            <mat-option value="5a71b8e6167566.89648438">Madhyanchal</mat-option>
+                            <mat-option value="5a71b954cf5e58.55295458">Purvanchal</mat-option>
+
+                            <mat-option value="5a71b98adb88d0.91464350">Paschimanchal</mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Select Project</mat-label>
+
+                          <mat-select name="project" formControlName="project_id" (selectionChange)="datachange('2')"
+                            required>
+                            <mat-option value="EODB">EODB</mat-option>
+                            <mat-option value="IPDS">IPDS</mat-option>
+                            <mat-option value="NTPF">NTPF</mat-option>
+                            <mat-option value="16NN">16 NN</mat-option>
+                            <mat-option value="152-R-APDRP">152-R-APDRP</mat-option>
+
+
+                          </mat-select>
+
+
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Select Date</mat-label>
+
+                          <input matInput [matDatepicker]="picker" [max]="maxDate" (dateInput)="datachange('2')"
+                            name="date" formControlName="date" placeholder="Select Date" required>
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+
+
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+
+                        <div class="row" style="    margin: 0;">
+                          <div class="col-10">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Select report</mat-label>
+
+                              <mat-select required name="report" formControlName="reportType"
+                                (selectionChange)="datachange('2')">
+                                <mat-optgroup label="Detail">
+                                  <mat-option value="DETAILS">Feeder</mat-option>
+                                </mat-optgroup>
+                                <mat-optgroup label="Summary">
+                                  <mat-option value="DISCOM" *ngIf="authForm.value.discom_id == 'All'">Discom Wise
+                                  </mat-option>
+                                  <mat-option value="DISTRICT">District Wise</mat-option>
+                                  <mat-option value="TOWN">Town Wise</mat-option>
+
+                                </mat-optgroup>
+                              </mat-select>
+
+
+                            </mat-form-field>
+                          </div>
+                          <div class="col-2">
+                            <speed-dial-fab class="speed-dial-container" [ngClass]="speedDialFabPosition"
+                              [reverse-column-direction]="speedDialFabPosition===SpeedDialFabPosition.Bottom"
+                              (fabClick)="onSpeedDialFabClicked($event)" [buttons]="speedDialFabButtons">
+                            </speed-dial-fab>
+
+                          </div>
+                        </div>
+
+
+
+                        <!--
+      <app-speed-dial-fab *ngIf="speedDialFabColumnDirection==SpeedDialFabPosition.Bottom" class="speed-dial-container-bottom" [column-direction]="'column-reverse'"></app-speed-dial-fab>
+      -->
+
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        </div></div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;" *ngIf="authForm.valid">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <span style="color: #616060"> <strong> {{reportTitle}} </strong></span>
+
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <mat-form-field appearance="outline" style="    width: 30%;">
+                    <mat-label>Search</mat-label>
+                    <input matInput placeholder="Placeholder" [(ngModel)] = "search">
+                    <mat-icon matPrefix>search</mat-icon>
+                  </mat-form-field>
+                  <div style="
+                 
+                  height: 500px;
+                  overflow: auto;
+                  border: 1px solid rgb(204, 204, 204);
+              ">
+
+                  <table class="table" *ngIf="HeaderKey">
+
+
+
+
+
+                    <tr class="secondHeader">
+                      <th *ngFor="let list of HeaderKey" width="{{list.Width+'px'}}">{{list.name}}</th>
+
+                    </tr>
+                  
+
+                    <tbody>
+                        <tr *ngFor="let row of displayList | filterNew:search:name;let i2 =index">
+                            <td *ngFor="let key of keyData ;let i =index">
+                              <span *ngIf="i ==0"> {{i2+1}}</span>
+      
+                              <span *ngIf="i !=0" [innerHTML]="getData(row,key,i) ">
+                              </span>
+      
+                            </td>
+                          </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr *ngIf ="authForm.value.reportType == 'DISCOM'">
+                         
+                        <td colspan="2" style="    text-align: center;">
+                            Total  
+                            </td>
+                            <td>
+                                {{TotalFeeder}}  
+                                </td>
+                                <td>
+                                    {{TotalactualSupply}}    
+                                    </td>
+                                    <td>
+                                        {{Totalsupplylessthan}}      
+                                        </td>
+                                        <td>
+                                            {{Avgpercentage}}     
+                                            </td>
+                                        <td>
+                                            {{Avgfeederlessthan}}     
+                                            </td>
+                      </tr>
+                      <tr *ngIf ="authForm.value.reportType == 'DETAILS'">
+                          <td colspan="7" style="    text-align: center;">
+                              Total  
+                              </td>
+                              <td>
+                                  {{TotalFeeder}}  
+                                  </td>
+                      </tr>
+                    </tfoot>
+
+                  </table>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

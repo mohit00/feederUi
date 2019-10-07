@@ -17,7 +17,7 @@ import {MatMenuModule} from '@angular/material/menu';
   declarations: [
     AppComponent,
     LoginComponent,
-    SucessComponent,
+    SucessComponent, 
      
      
   ],

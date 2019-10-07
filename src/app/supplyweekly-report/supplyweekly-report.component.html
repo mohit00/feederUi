@@ -10,8 +10,223 @@
             <div class="row" >
               <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
                 <div class="card" style="border-radius: 10px;">
-                  <div class="card-body"></div></div></div>
+                  <div class="card-body">
+                      <form [formGroup]="authForm">
+
+<div class="row">
+  <div class= "col-3">  <mat-form-field appearance="outline">
+    <mat-label>Select Discom</mat-label>
+    <mat-select  required formControlName="discom_id" (selectionChange)="datachange()">
+      <mat-option value="All">All</mat-option>
+      <mat-option value="5a71b6d35156d7.70878980">Dakshinanchal</mat-option>
+      <mat-option value="5a71b8a355c2d4.24012768">Kesco</mat-option>
+      <mat-option value="5a71b8e6167566.89648438">Madhyanchal</mat-option>
+      <mat-option value="5a71b954cf5e58.55295458">Purvanchal</mat-option>
+
+      <mat-option value="5a71b98adb88d0.91464350">Paschimanchal</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class= "col-2">  <mat-form-field appearance="outline">
+      <mat-label>Select Project</mat-label>
+
+    <mat-select  required formControlName="project_id" (selectionChange)="datachange()">
+      <mat-option value="EODB">EODB</mat-option>
+      <mat-option value="IPDS">IPDS</mat-option>
+      <mat-option value="NTPF">NTPF</mat-option>
+      <mat-option value="16NN">16 NN</mat-option>
+      <mat-option value="152-R-APDRP">152-R-APDRP</mat-option>
+
+ 
+    </mat-select>
+   
+ 
+  </mat-form-field>
+  </div>
+  <div class= "col-4">
+    <div class= "row" style="margin: 0">
+<div class ="col-6">
+    <mat-form-field appearance="outline">
+        <mat-label>Select Month / Year</mat-label>
+  
+             <input matInput [matDatepicker]="dp" placeholder="Month and Year"  placeholder="Select Date" [max]="maxDate"
+             (dateInput)="datachange('2')" name="date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+            <mat-datepicker #dp
+                            startView="multi-year"
+                            (yearSelected)="chosenYearHandler($event)"
+                            (monthSelected)="chosenMonthHandler($event, dp)"
+                            panelClass="example-month-picker">
+            </mat-datepicker>
+      
+       
+    </mat-form-field>
+</div>
+<div class ="col-6">
+    <mat-form-field appearance="outline">
+        <mat-label>Select Week</mat-label>
+  
+      <mat-select  required formControlName="limit" (selectionChange)="datachange()">
+        <mat-option value="WK1">Week-1</mat-option>
+        <mat-option value="WK2">Week-2</mat-option>
+        <mat-option value="WK3">Week-3</mat-option>
+        <mat-option value="WK4">Week-4</mat-option>
+   
+   
+      </mat-select>
+     
+   
+    </mat-form-field>
+
+</div>
+
+    </div>
+  
+  </div>
+  <div class= "col-3">  
+    
+      <div class= "row" style="    margin: 0;">
+        <div class ="col-10">
+            <mat-form-field appearance="outline">
+                <mat-label>Select report</mat-label>
+          
+              <mat-select  required formControlName="reportType" (selectionChange)="datachange()">
+                  <mat-optgroup    label="Detail"
+                  >
+                  <mat-option value="DETAILS">Feeder</mat-option>
+   </mat-optgroup>
+   
+              </mat-select>
+             
+           
+            </mat-form-field>
+        </div>
+        <div class ="col-2">
+            <speed-dial-fab class="speed-dial-container" [ngClass]="speedDialFabPosition" [reverse-column-direction]="speedDialFabPosition===SpeedDialFabPosition.Bottom" (fabClick)="onSpeedDialFabClicked($event)" [buttons]="speedDialFabButtons"></speed-dial-fab>
+
+          </div>
+      </div>
+    
+      
+      
+      <!--
+      <app-speed-dial-fab *ngIf="speedDialFabColumnDirection==SpeedDialFabPosition.Bottom" class="speed-dial-container-bottom" [column-direction]="'column-reverse'"></app-speed-dial-fab>
+      -->
+ 
+  </div>
+</div>
+
+</form>
+                  </div></div></div>
                 </div></div>
             </div>
         </div>
+
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;" *ngIf="authForm.valid">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+                <span style="color: #616060"> <strong> {{reportTitle}} </strong></span>
+      
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+                    <div class="card" style="border-radius: 10px;">
+                      <div class="card-body">
+                        <mat-form-field appearance="outline" style="    width: 30%;">
+                          <mat-label>Search</mat-label>
+                          <input matInput placeholder="Placeholder" [(ngModel)]="search">
+                          <mat-icon matPrefix>search</mat-icon>
+                        </mat-form-field>
+                        <div style="
+                             
+                              height: 500px;
+                              overflow: auto;
+                              border: 1px solid rgb(204, 204, 204);
+                          ">
+                          <table class="table" width="40%">
+                           
+                             
+      
+                            <colgroup span="7"></colgroup>
+                            <colgroup span="5"></colgroup>
+                            <colgroup span="9"></colgroup>
+      
+                            <tr>
+                                <th  scope="colgroup" colspan="1"  width="70px" >S No.  </th>
+                              <th colspan="1" scope="colgroup"  width="150px"  >Discom  </th>
+                              
+                              <th colspan="1" scope="colgroup"  width="150px">Circle </th>
+                              <th colspan="1" scope="colgroup"  width="150px">Town </th>
+      
+                              
+                              <th colspan="1" scope="colgroup"  width="150px">SS Name </th>
+                              <th colspan="1" scope="colgroup"   width="150px">Feeder Name </th>
+                              <th colspan="7" scope="colgroup"   width="400px">Count(IN No.) </th>
+
+                              <th colspan="7" scope="colgroup"   width="400px">Duration In(MINS) </th>
+      
+                            </tr>
+                            <tr class="secondHeader">
+                                <th scope="col"> </th>
+      
+                              <th scope="col">  </th>
+                              <th scope="col"><span> </span></th>
+                              <th scope="col"><span> </span></th>
+                              <th scope="col"><span> </span></th>
+                              <th scope="col"><span> </span></th>
+
+                              <th scope="col"><span>1 </span></th>
+                              <th scope="col"><span>2</span></th>
+                              <th scope="col"><span>3</span></th>
+                              <th scope="col"><span>4</span></th>
+                              <th scope="col"><span>5</span></th>
+                              <th scope="col"><span>6</span></th>
+                              <th scope="col"><span>7</span></th>
+                              <th scope="col"><span>1 </span></th>
+                              <th scope="col"><span>2</span></th>
+                              <th scope="col"><span>3</span></th>
+                              <th scope="col"><span>4</span></th>
+                              <th scope="col"><span>5</span></th>
+                              <th scope="col"><span>6</span></th>
+                              <th scope="col"><span>7</span></th>
+      
+      
+                            </tr>
+                            <tr *ngFor = "let list of displayList ; let i =index">
+                              <td>{{i + 1}}</td>
+                              <td>{{list.discom}}</td>
+                              <td>{{list.circle}}</td>
+                              <td>{{list.town}}</td>
+                              <td>{{list.division}}</td>
+                              <td>{{list.feeder_name}}</td>
+                              <td>{{list.Count01}}</td>
+                              <td>{{list.Count02}}</td>
+                              <td>{{list.Count03}}</td>
+                              <td>{{list.Count04}}</td>
+                              <td>{{list.Count05}}</td>
+                              <td>{{list.Count06}}</td>
+                              <td>{{list.Count07}}</td>
+                              <td>{{list.Duration01}}</td>
+                              <td>{{list.Duration02}}</td>
+                              <td>{{list.Duration03}}</td>
+                              <td>{{list.Duration04}}</td>
+                              <td>{{list.Duration05}}</td>
+                              <td>{{list.Duration06}}</td>
+                              <td>{{list.Duration07}}</td>
+
+                            </tr>
+                            <tbody>
+                               
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div></div>

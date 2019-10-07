@@ -1,17 +1,193 @@
 <app-header></app-header>
 <div class="container-fluid" style="width: 98%;">
-        <div class="row topBox">
-      
-<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
-           <span style = "color:#3c5f8a" (click) = "changePage('/dashboard')"> <u>DashBoard </u> </span> <span style="color: #616060"> <strong>/ Three Day Report </strong></span>
-  
-            <div class="row" >
-              <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 " >
-                <div class="card" style="border-radius: 10px;">
-                  <div class="card-body"></div></div></div>
-                </div></div>
+  <div class="row topBox">
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <span style="color:#3c5f8a" (click)="changePage('/dashboard')"> <u>DashBoard </u> </span> <span
+            style="color: #616060"> <strong>/ Three Day Report </strong></span>
+
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <form [formGroup]="authForm">
+
+                    <div class="row">
+                      <div class="col-3">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Select Discom</mat-label>
+                          <mat-select required formControlName="discom_id" (selectionChange)="datachange('1')">
+                            <mat-option value="All">All</mat-option>
+                            <mat-option value="5a71b6d35156d7.70878980">Dakshinanchal</mat-option>
+                            <mat-option value="5a71b8a355c2d4.24012768">Kesco</mat-option>
+                            <mat-option value="5a71b8e6167566.89648438">Madhyanchal</mat-option>
+                            <mat-option value="5a71b954cf5e58.55295458">Purvanchal</mat-option>
+
+                            <mat-option value="5a71b98adb88d0.91464350">Paschimanchal</mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                        <mat-form-field appearance="outline" 
+                          (selectionChange)="datachange('2')">
+                          <mat-label>Select Project</mat-label>
+
+                          <mat-select required formControlName="project_id" >
+                            <mat-option value="8NN">8 NN</mat-option>
+
+
+                          </mat-select>
+
+
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Select Date</mat-label>
+
+                          <input matInput [matDatepicker]="picker" placeholder="Select Date" [max]="maxDate"
+                            (dateInput)="datachange('2')" name="date" formControlName="date" placeholder="Select Date">
+                          <mat-datepicker-toggle matSuffix [for]="picker"> </mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+
+
+                        </mat-form-field>
+                      </div>
+                      <div class="col-3">
+
+                        <div class="row" style="    margin: 0;">
+                          <div class="col-10">
+                            <mat-form-field appearance="outline">
+                              <mat-label>Select report</mat-label>
+
+                              <mat-select required formControlName="reportType" (selectionChange)="datachange('3')">
+
+                                <mat-optgroup label="Summary">
+                                  <mat-option value="TOWN">Town Wise</mat-option>
+
+                                </mat-optgroup>
+                              </mat-select>
+
+
+                            </mat-form-field>
+                          </div>
+                          <div class="col-2">
+                            <speed-dial-fab class="speed-dial-container" [ngClass]="speedDialFabPosition"
+                              [reverse-column-direction]="speedDialFabPosition===SpeedDialFabPosition.Bottom"
+                              (fabClick)="onSpeedDialFabClicked($event)" [buttons]="speedDialFabButtons">
+                            </speed-dial-fab>
+
+                          </div>
+                        </div>
+
+
+
+                        <!--
+      <app-speed-dial-fab *ngIf="speedDialFabColumnDirection==SpeedDialFabPosition.Bottom" class="speed-dial-container-bottom" [column-direction]="'column-reverse'"></app-speed-dial-fab>
+      -->
+
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        </div></div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;" *ngIf="authForm.valid">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <span style="color: #616060"> <strong> {{reportTitle}} </strong></span>
+
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-body">
+                  <mat-form-field appearance="outline" style="    width: 30%;">
+                    <mat-label>Search</mat-label>
+                    <input matInput placeholder="Placeholder" [(ngModel)]="search">
+                    <mat-icon matPrefix>search</mat-icon>
+                  </mat-form-field>
+                  <div style="
+                       
+                        height: 500px;
+                        overflow: auto;
+                        border: 1px solid rgb(204, 204, 204);
+                    ">
+                    <table class="table" width="40%">
+                     
+                       
+
+                      <colgroup span="7"></colgroup>
+                      <colgroup span="5"></colgroup>
+                      <colgroup span="9"></colgroup>
+
+                      <tr>
+                          <th  scope="colgroup" colspan="1"  width="70px" >S No.  </th>
+                        <th colspan="1" scope="colgroup"  width="230px"  >Nagar Nigam Town Name  </th>
+                        
+                        <th colspan="2" scope="colgroup"  width="250px">11 KV Feeder </th>
+                        <th colspan="2" scope="colgroup"  width="200px">Total Working Modem </th>
+
+                        
+                        <th colspan="1" scope="colgroup"  width="50px">Date </th>
+                        <th colspan="6" scope="colgroup"   width="400px">Power Supply Status Based on Modem </th>
+                        <th colspan="1" scope="colgroup" width="150px">Comment From Last Three Days </th>
+
+                      </tr>
+                      <tr class="secondHeader">
+                          <th scope="col"> </th>
+
+                        <th scope="col">  </th>
+                        <th scope="col"><span>Total Feeder</span></th>
+                        <th scope="col"><span>Feeder With Modems</span></th>
+                        <th scope="col"><span>No.</span></th>
+                        <th scope="col"><span>%</span></th>
+                        <th scope="col"><span> </span></th>
+                        <th scope="col"><span>24 to 23 Hrs</span></th>
+                        <th scope="col"><span>%</span></th>
+                        <th scope="col"><span>23 to 22 Hrs</span></th>
+                        <th scope="col"><span>%</span></th>
+                        <th scope="col"><span>Less Than 22 Hrs</span></th>
+                        <th scope="col"><span>%</span></th>
+                        <th scope="col"><span> </span></th>
+
+
+                      </tr>
+                      <tbody>
+                        <tr *ngFor = "let list of displayList | filterNew:search:name;let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{list.TownName}}</td>
+                          <td>{{list.TotalFeeder}}</td>
+                          <td>{{list.FeedersWithModems}}</td>
+                          <td>{{list.WorkingModemNo}}</td>
+                          <td>{{list.WorkingModemPrcntg}}</td>
+                          <td>{{list.Date}}</td>
+                          <td>{{list.Hrs24To23}}</td>
+                          <td>{{list.Hrs24To23per}}</td>
+                          <td>{{list.Hrs23To22}}</td>
+                          <td>{{list.Hrs23To22per}}</td>
+                          <td>{{list.LessThan22Hrs}}</td>
+                          <td>{{list.LessThan22Hrsper}}</td>
+                          <td>{{list.CommentFromlast3days}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

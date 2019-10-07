@@ -16,10 +16,10 @@ const routes: Routes = [
   component:SupplyReportComponent
 },{
   path:'Supply/Weekly/Report',
-  component:SupplyweeklyReportComponent
+  component: SupplythreeReportComponent 
 },{
   path:'Supply/Three/Day/Report',
-  component:SupplythreeReportComponent
+  component:SupplyweeklyReportComponent
 }
    
 ];

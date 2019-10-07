@@ -1,3 +1,16 @@
+.topHeader {
+  margin-top: 6%;
+ }
+@media only screen and (max-width: 2400) {
+  .topHeader {
+   margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 1500) {
+  .topHeader {
+   margin-top: 8%;
+  }
+}
 .row{
     width:100%;
 }
