@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
  
 import {MatFormFieldModule,MatInputModule ,MatSelectModule,MatDatepickerModule,
-  MatNativeDateModule ,MatIconModule ,MatButtonToggleModule, MatTooltipModule} from '@angular/material';
-
+  MatNativeDateModule ,MatIconModule ,MatButtonToggleModule, MatTooltipModule,MatProgressSpinnerModule} from '@angular/material';
+ 
 import {
   EcoFabSpeedDialModule
 } from '@ecodev/fab-speed-dial';
@@ -27,7 +27,7 @@ import { FilterNewPipe } from '../service/filter.pipe';
 
 @NgModule({
   declarations: [FilterNewPipe,SupplyReportComponent,DashboardComponent,HeaderComponent, SupplyweeklyReportComponent, SupplythreeReportComponent, SpeedDialFabComponent],
-  imports: [ReactiveFormsModule, MatButtonToggleModule, MatTooltipModule,MatMenuModule,MaphilightModule,MatInputModule,EcoFabSpeedDialModule,AgmCoreModule.forRoot({
+  imports: [MatProgressSpinnerModule,ReactiveFormsModule, MatButtonToggleModule, MatTooltipModule,MatMenuModule,MaphilightModule,MatInputModule,EcoFabSpeedDialModule,AgmCoreModule.forRoot({
     apiKey: ''
   }),FormsModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule ,MatIconModule,
     CommonModule, MatFormFieldModule,   BsDatepickerModule.forRoot() ,DashRoutingModule,BsDropdownModule ,   CollapseModule.forRoot(),HighchartsChartModule

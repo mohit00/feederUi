@@ -115,12 +115,15 @@
                     <input matInput placeholder="Placeholder" [(ngModel)]="search">
                     <mat-icon matPrefix>search</mat-icon>
                   </mat-form-field>
+                  <div *ngIf="displayList">
+                    <mat-spinner *ngIf ="displayList.length == 0" ></mat-spinner>
+                  
                   <div style="
                        
                         height: 500px;
                         overflow: auto;
                         border: 1px solid rgb(204, 204, 204);
-                    ">
+                    " *ngIf ="displayList.length > 0"  #TABLE #table >
                     <table class="table" width="40%">
                      
                        
@@ -137,7 +140,7 @@
                         <th colspan="2" scope="colgroup"  width="200px">Total Working Modem </th>
 
                         
-                        <th colspan="1" scope="colgroup"  width="50px">Date </th>
+                        <th colspan="1" scope="colgroup"  width="120px">Date </th>
                         <th colspan="6" scope="colgroup"   width="400px">Power Supply Status Based on Modem </th>
                         <th colspan="1" scope="colgroup" width="150px">Comment From Last Three Days </th>
 
@@ -181,6 +184,7 @@
                       </tbody>
                     </table>
                   </div>
+                </div>
                 </div>
               </div>
             </div>

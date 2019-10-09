@@ -124,7 +124,7 @@
         </div>
 
 
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;" *ngIf="authForm.valid && displayList.length > 0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="background: #f0eff7 ;" *ngIf="authForm.valid ">
             <div class="row">
               <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
                 <span style="color: #616060"> <strong> {{reportTitle}} </strong></span>
@@ -138,13 +138,15 @@
                           <input matInput placeholder="Placeholder" [(ngModel)]="search">
                           <mat-icon matPrefix>search</mat-icon>
                         </mat-form-field>
+                        <div *ngIf="displayList">
+                          <mat-spinner *ngIf ="displayList.length == 0" ></mat-spinner>
                         <div style="
                              
                               height: 500px;
                               overflow: auto;
                               border: 1px solid rgb(204, 204, 204);
-                          ">
-                          <table class="table" width="40%">
+                          " *ngIf ="displayList.length > 0" >
+                          <table class="table" width="40%"  #TABLE #table> 
                            
                              
       
@@ -221,6 +223,7 @@
                             </tbody>
                           </table>
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>

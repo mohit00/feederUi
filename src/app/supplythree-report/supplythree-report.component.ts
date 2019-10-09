@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { speedDialFabAnimations } from '../animation';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {FeederService} from '../service/feeder/feeder.service'
 import { DatePipe } from '@angular/common';
+import * as XLSX from 'xlsx';  
+
 export interface FabButton {
   icon: string,
   tooltip: string
@@ -23,6 +25,13 @@ export enum SpeedDialFabPosition {
 
 })
 export class SupplythreeReportComponent  {
+  @ViewChild('TABLE', { static: false }) TABLE: ElementRef;  
+  ExportTOExcel() {  
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement);  
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();  
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');  
+    XLSX.writeFile(wb,  this.reportTitle+'.xlsx');  
+  }  
   maxDate:Date = new Date();
   authForm: FormGroup;
   HeaderKey :any ;
@@ -57,9 +66,10 @@ export class SupplythreeReportComponent  {
    
   }
   reportTitle:any;
-  displayList:any
+  displayList:any = [];
   getSupplyDaily(){
        this.name ='TownName';
+       this.displayList = [];
     this.Service.getDailySupply(this.authForm.value).subscribe(res=>{
       this.displayList = res[0].resources;
     })
@@ -117,5 +127,8 @@ export class SupplythreeReportComponent  {
 
   onSpeedDialFabClicked(btn: {icon: string}) {
     console.log(btn);
+    if( btn.icon == 'assignment'){
+      this.ExportTOExcel()
+    }
   }
 }

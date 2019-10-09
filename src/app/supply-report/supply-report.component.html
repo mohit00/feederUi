@@ -125,14 +125,18 @@
                     <input matInput placeholder="Placeholder" [(ngModel)] = "search">
                     <mat-icon matPrefix>search</mat-icon>
                   </mat-form-field>
-                  <div style="
+                  <div *ngIf="displayList">
+                  <mat-spinner *ngIf ="displayList.length == 0" ></mat-spinner>
+                </div>
+                <div *ngIf ="displayList">
+<div style="
                  
                   height: 500px;
                   overflow: auto;
                   border: 1px solid rgb(204, 204, 204);
-              ">
+              " *ngIf =" displayList.length > 0" #TABLE #table>
 
-                  <table class="table" *ngIf="HeaderKey">
+                  <table class="table" *ngIf="HeaderKey " id ="foo" >
 
 
 
@@ -191,7 +195,7 @@
                   </div>
                 </div>
 
-
+</div>
               </div>
             </div>
           </div>
