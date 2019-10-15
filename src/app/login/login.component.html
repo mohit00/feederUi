@@ -8,11 +8,11 @@
 	<div class="content clearfix" style ="    margin-top: 11px;">
 		 
  		
-			<img src ="assets/img/red.png" style="    margin: auto;
-			margin-left: 35px;
-			padding: 2px;
-			width: 222px;
-			margin-bottom: 11px;">		
+			<img src ="assets/img/logo_uppcl.png" style="    margin: auto;
+      margin-left: 30%;
+      padding: 2px;
+      width: 120px;
+      margin-bottom: 11px;;">		
 			
 			<div class="login-fields">
 				<form [formGroup]="myForm"  >
@@ -45,7 +45,10 @@
                             </label> Remember Me
                             </div>
                             </div>
-                            <button type="button" class="btn btn-primary submitButton"  (click) ="dash()">Sign In</button>
+                            <button type="button" class="btn btn-primary submitButton" *ngIf ="showSignIn" (click) ="dash()">Sign In</button>
+                            <button class="buttonload btn btn-primary submitButton" *ngIf ="!showSignIn" disabled >
+                              <i class="fa fa-spinner fa-spin"></i>Loading
+                            </button>
                           </form>
 				   <!-- /password -->
 				

@@ -1,0 +1,64 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left"  >{{headerTitle}}</h4> 
+    <i class="fa fa-info" aria-hidden="true" style ="float: right;
+    font-size: 20px;
+    /* padding: 8px; */
+    padding-top: 10px;
+    cursor: pointer;
+    "></i> 
+  </div>
+  <div class="modal-body">
+        <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-xl-12 col-lg-12 ">
+          <div class="card" style="border-radius: 10px;">
+            <div class="card-body">
+              <mat-form-field appearance="outline" style="    width: 30%;">
+                <mat-label>Search</mat-label>
+                <input matInput placeholder="Placeholder" [(ngModel)] = "search">
+                <mat-icon matPrefix>search</mat-icon>
+              </mat-form-field>
+              <div *ngIf="displayList">
+              <mat-spinner *ngIf ="displayList.length == 0" ></mat-spinner>
+            </div>
+            <div *ngIf ="displayList">
+<div style="
+             
+              height: 350px;
+              overflow: auto;
+              border: 1px solid rgb(204, 204, 204);
+          " *ngIf =" displayList.length > 0">
+
+            <table class="table" id ="foo" >
+
+
+
+
+
+                <tr class="secondHeader">
+                  <th *ngFor="let list of HeaderKey" width="{{list.Width+'px'}}">{{list.name}}</th>
+
+                </tr>
+              
+
+                <tbody>
+                    <tr *ngFor="let row of displayList | filterNew:search:name;let i2 =index">
+                        <td *ngFor="let key of keyData ;let i =index">
+                          <span *ngIf="i ==0"> {{i2+1}}</span>
+  
+                          <span *ngIf="i !=0" [innerHTML]="getData(row,key,i) ">
+                          </span>
+  
+                        </td>
+                      </tr>
+                </tbody>
+                
+
+              </table>  
+              </div>
+            </div>
+
+</div>
+          </div>
+        </div>
+      </div>
+      </div>

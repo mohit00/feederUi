@@ -25,14 +25,45 @@ export class FeederService {
   INTERRUPTION_DATA = 'getInterruptionData';
   GET_BEST_AND_WORST = 'getBestAndWorstFeeder'
   GET_DAILY_SUPPLY_REPORT = 'SupplyReportSummar';
-  GET_WEEKLY_SUPPLY_REPORT = 'SupplyWeeklyDetails'
+  GET_WEEKLY_SUPPLY_REPORT = 'SupplyWeeklyDetails';
+  DIALOG_AVG_SUPPLY = 'getMasterAvgSupplyStatus';
+  DIALOG_FEEDER_AVG_SUPPLY = 'getMasterAvgSupplyStatusDetails' 
    constructor(private _http: HttpClient, private router: Router 
     // tslint:disable-next-line: no-shadowed-variable
                  ) {
      }
      get getuser(){
       return JSON.parse(sessionStorage.getItem('userdetail'));
+       
      }
+     
+     getDialogAvg(data:any): Observable < any > {
+      return this._http.post(  this.BASE_URL+this.DIALOG_AVG_SUPPLY, data).pipe(
+        // eg. "map" without a dot before
+        map(data => {
+          return data;
+        }),
+        // "catchError" instead "catch"
+        catchError(error => {
+          alert("Something went wrong ;)");
+          return Observable.throw('Something went wrong ;)');
+        })
+      );
+  }
+  getDialogfeederAvg(data:any): Observable < any > {
+    return this._http.post(  this.BASE_URL+this.DIALOG_FEEDER_AVG_SUPPLY, data).pipe(
+      // eg. "map" without a dot before
+      map(data => {
+        return data;
+      }),
+      // "catchError" instead "catch"
+      catchError(error => {
+        alert("Something went wrong ;)");
+        return Observable.throw('Something went wrong ;)');
+      })
+    );
+}
+  
      getfeederProject(data:any): Observable < any > {
       return this._http.post(  this.BASE_URL+this.GET_FEEDER_PROJECT_WITH_COUNT, data).pipe(
         // eg. "map" without a dot before
@@ -60,6 +91,7 @@ export class FeederService {
       );
     }
     getfeederStatisticData(data:any): Observable < any > {
+      console.log("Gradph Data" + JSON.stringify(data));
       return this._http.post(  this.BASE_URL+this.GET_FEEDER_STATISTIC_DATA, data).pipe(
         // eg. "map" without a dot before
         map(data => {
@@ -86,7 +118,7 @@ export class FeederService {
       );
     }
     averageSupply(data:any): Observable < any > {
-      return this._http.post(  this.BASE_URL+this.AVERAGE_SUPPLY, data).pipe(
+      return this._http.post(  this.BASE_URL+this.DIALOG_AVG_SUPPLY, data).pipe(
         // eg. "map" without a dot before
         map(data => {
           return data;

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private Router:Router) { }
-
+  dateHeader : any= new Date();
   changePage(data){
      
 this.Router.navigate([data])

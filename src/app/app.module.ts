@@ -10,19 +10,25 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginComponent } from './login/login.component';
 import { SucessComponent } from './dialog/sucess/sucess.component';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule  } from 'ngx-bootstrap/dropdown';
+import {ModalModule } from 'ngx-bootstrap'; 
 import {MatMenuModule} from '@angular/material/menu';
-
-@NgModule({
+import {MatDialogModule} from '@angular/material/dialog';
+import {DialogComponent} from './dashboard/dialog/dialog'
+import {MatFormFieldModule,MatInputModule ,MatSelectModule,MatDatepickerModule,
+  MatNativeDateModule ,MatIconModule ,MatButtonToggleModule, MatTooltipModule,MatProgressSpinnerModule} from '@angular/material';
+  import { FormsModule } from '@angular/forms';
+ import {SharedModule} from './shared.module'
+ @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SucessComponent, 
-     
-     
-  ],
-  imports: [BrowserAnimationsModule, HttpClientModule,MatMenuModule,
-    BrowserModule,ReactiveFormsModule,BsDropdownModule.forRoot(),
+    SucessComponent, DialogComponent
+      
+  ],entryComponents:[DialogComponent],
+  imports: [SharedModule,MatFormFieldModule,MatInputModule ,MatSelectModule,MatDatepickerModule,
+    MatNativeDateModule ,MatIconModule ,MatButtonToggleModule, MatTooltipModule,MatProgressSpinnerModule,MatDialogModule,BrowserAnimationsModule, HttpClientModule,MatMenuModule,
+    BrowserModule,ReactiveFormsModule,FormsModule,BsDropdownModule.forRoot(),ModalModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

@@ -4,8 +4,7 @@ import { DashboardComponent } from './dashboard.component';
  
 import {MatFormFieldModule,MatInputModule ,MatSelectModule,MatDatepickerModule,
   MatNativeDateModule ,MatIconModule ,MatButtonToggleModule, MatTooltipModule,MatProgressSpinnerModule} from '@angular/material';
- 
-import {
+ import {
   EcoFabSpeedDialModule
 } from '@ecodev/fab-speed-dial';
 import { DashRoutingModule } from './dashboard.routing.module';
@@ -23,13 +22,13 @@ import { SupplyReportComponent } from '../supply-report/supply-report.component'
 import { SupplyweeklyReportComponent } from '../supplyweekly-report/supplyweekly-report.component';
 import { SupplythreeReportComponent } from '../supplythree-report/supplythree-report.component';
 import { SpeedDialFabComponent } from '../speed-dial-fab/speed-dial-fab.component';
-import { FilterNewPipe } from '../service/filter.pipe';
+import {SharedModule} from '../shared.module'
 
 @NgModule({
-  declarations: [FilterNewPipe,SupplyReportComponent,DashboardComponent,HeaderComponent, SupplyweeklyReportComponent, SupplythreeReportComponent, SpeedDialFabComponent],
+  declarations: [SupplyReportComponent,DashboardComponent,HeaderComponent, SupplyweeklyReportComponent, SupplythreeReportComponent, SpeedDialFabComponent],
   imports: [MatProgressSpinnerModule,ReactiveFormsModule, MatButtonToggleModule, MatTooltipModule,MatMenuModule,MaphilightModule,MatInputModule,EcoFabSpeedDialModule,AgmCoreModule.forRoot({
     apiKey: ''
-  }),FormsModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule ,MatIconModule,
+  }),FormsModule,SharedModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule ,MatIconModule,
     CommonModule, MatFormFieldModule,   BsDatepickerModule.forRoot() ,DashRoutingModule,BsDropdownModule ,   CollapseModule.forRoot(),HighchartsChartModule
   ]
 })

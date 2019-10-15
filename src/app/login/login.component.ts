@@ -18,14 +18,22 @@ export class LoginComponent implements OnInit {
       password:['',Validators.required]
     })
   }
+  showSignIn:boolean = true;
   ngOnInit() {
   }
   dash(){
   if(this.myForm.valid){
+    this.showSignIn = false;
      this.service.login(this.myForm.value).subscribe(res=>{
-       this.service.setUserdetail(( res));
+ if(res.rc == 0){
+  this.service.setUserdetail(( res));
      
-      this.route.navigate(['/dashboard']);
+  this.route.navigate(['/dashboard']);
+ } else {
+  this.showSignIn = true;
+
+   alert((res.message));
+ }
 
     })
 
