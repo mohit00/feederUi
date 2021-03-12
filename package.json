@@ -31,7 +31,7 @@
     "highcharts": "^7.2.0",
     "highcharts-angular": "^2.4.0",
     "html2canvas": "^1.0.0-rc.5",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "moment": "^2.24.0",
     "ng-circle-progress": "^1.5.1",
     "ng-maphilight": "^1.0.1",
